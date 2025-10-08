@@ -1,0 +1,138 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(69, 69, 69);
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: aliceblue;
+}
+a{
+    text-decoration: none;
+}
+li{
+    display: inline;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 20px;
+    
+}
+header{
+    height: 150px;
+    width: 100%;
+    background-color: rgb(248, 248, 184);
+}
+.nav{
+    text-align: center;
+    border-top: 1px solid black;
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    box-shadow: 5px 5px 5px rgb(153, 153, 153);
+    background-color: beige;
+}
+.nav a{
+    position: relative;
+}
+.nav a:hover{
+    color: aliceblue;
+}
+.itens-header img{
+    width: 130px;
+    height: 100px;
+    padding: 20px;
+    padding-left: 170px;
+    position: relative;
+    z-index: 2  ;
+   
+}
+.itens-header{
+    padding: 0px;
+    display: flex;
+    z-index: 1;
+}
+.barraPesquisa{
+    text-align: center;
+    display: flex;
+    padding-left: 130px;;
+    height: 30px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    padding-top: 65px;
+}
+#inp-procurar{
+    width: 500px;
+    height: 27px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    display: fixed;
+    border-right: none;
+    padding-left: 25px;
+    padding-right: 25px;
+    z-index: 1;
+    border: 2px solid aliceblue;
+    outline: 1px solid black;
+}
+#btn-procurar{
+   width: 100px;
+   height: 30px;
+   border: 1px solid black;
+   border-bottom-right-radius: 15px;
+   border-top-right-radius: 15px;
+   z-index: 1;
+}
+.icon-usuario img{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+.icon-usuario{
+    height: 65px;
+    text-align: center;
+    padding: 0;
+    margin-top: 45px;
+    margin-left: 200px;
+    border: 1px solid black;
+    border-radius: 35px;
+    background-color: beige;
+}
+.icon-usuario:hover{
+    transition: 0.2s;
+    background-color: red;
+    border: 3px solid aliceblue;
+    outline: 1px solid black;
+}
+li{
+    z-index: 1;
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+}
+li:hover{
+    transition: 0.3s;
+    background-color: red;
+    box-shadow: 5px 5px rgb(0, 0, 0);
+    color: aliceblue;
+}
+button:hover{
+    background-color: red;
+    transition: 0.3s;
+}
+.faixa{
+    padding-left: 500px;
+    position: fixed;
+    background-color: red;
+    width:40%;
+    height: 150px;
+    top: 0px;
+    z-index: 0;
+    clip-path: content-box polygon(0% 100%, 00% 0%, 100% 100%);
+}
+.bloco{
+    position: fixed;
+    background-color: red;
+    width: 500px;
+    height: 150px;
+    top: 0px;
+    z-index: 0;
+}

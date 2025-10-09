@@ -6,6 +6,7 @@
 }
 body{
     background-color: aliceblue;
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
@@ -14,8 +15,7 @@ li{
     display: inline;
     text-decoration: none;
     list-style-type: none;
-    padding: 20px;
-    
+    padding: 20px
 }
 header{
     height: 150px;
@@ -41,10 +41,9 @@ header{
     width: 130px;
     height: 100px;
     padding: 20px;
-    padding-left: 170px;
+    padding-left: 150px;
     position: relative;
     z-index: 2  ;
-   
 }
 .itens-header{
     padding: 0px;
@@ -72,10 +71,11 @@ header{
     z-index: 1;
     border: 2px solid aliceblue;
     outline: 1px solid black;
+    margin-top: 0.2px;
 }
 #btn-procurar{
    width: 100px;
-   height: 30px;
+   height: 31px;
    border: 1px solid black;
    border-bottom-right-radius: 15px;
    border-top-right-radius: 15px;
@@ -91,7 +91,7 @@ header{
     text-align: center;
     padding: 0;
     margin-top: 45px;
-    margin-left: 200px;
+    margin-left: 115px;
     border: 1px solid black;
     border-radius: 35px;
     background-color: beige;
@@ -103,36 +103,134 @@ header{
     outline: 1px solid black;
 }
 li{
-    z-index: 1;
+   /* z-index: 1;
     width: 100px;
     max-width: 100px;
-    min-width: 100px;
+    min-width: 100px;*/
 }
 li:hover{
-    transition: 0.3s;
+    transition: 0.3s ease-out;
     background-color: red;
     box-shadow: 5px 5px rgb(0, 0, 0);
+
+}
+li:hover a{
     color: aliceblue;
 }
 button:hover{
     background-color: red;
     transition: 0.3s;
 }
-.faixa{
-    padding-left: 500px;
+/*.faixa{
+    padding-left: 600px;
     position: fixed;
     background-color: red;
     width:40%;
     height: 150px;
     top: 0px;
     z-index: 0;
-    clip-path: content-box polygon(0% 100%, 00% 0%, 100% 100%);
+    clip-path: content-box polygon(0% 100%, 00% 0%, 80% 100%);
 }
 .bloco{
-    position: fixed;
+    position: sticky;
     background-color: red;
-    width: 500px;
+    width: 600px;
     height: 150px;
     top: 0px;
     z-index: 0;
+}*/
+footer{
+    width: 100%;
+    height: 150px;
+    position: relative;
+    bottom: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(39, 34, 34);
+}
+footer div{
+    color: aliceblue;
+    margin: 20px;
+}
+.titulo{
+    margin-left: 270px;
+    position: relative;
+    z-index: 2  ;
+    bottom: 85px;
+    left: 50px;
+}
+.titulo2{
+    margin-left: 270px;
+    position: relative;
+    z-index: 2  ;
+    bottom: 85px;
+    left: 60px;
+}
+.titulo p{
+    color: aliceblue;
+    text-shadow: 1px 1px black;
+    font-size: large;
+}
+.titulo2 p{
+    font-size: large;
+    color: rgb(255, 173, 101);
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+.container{
+    margin: 100px;
+    gap: 150px;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    margin-left: 175px;
+}
+.receita{
+    display: block;
+    width: 500px;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px 5px rgb(153, 153, 153);
+    background-color: rgb(255, 173, 101);;
+    overflow: hidden;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.receita h1{
+    padding: 5px;
+    padding-left: 20px;
+    border: 3px solid black;
+}
+.receita img{
+    margin-left: 0;
+}
+.recei_info{
+    padding: 20px;
+    border: 3px solid black;
+    width: 456px;
+    background-color:antiquewhite;
+    overflow: hidden;
+    position: relative;
+}
+.receita img{
+    transition: transform 0.5s ease-in-out;  
+}
+.recei-titu{
+    background-color:antiquewhite;
+}
+.receita:hover img{
+    transform: scale(1.2);
+}
+#card-img{
+    border: 4px solid black;  
+    overflow: hidden;
+    padding: 0  ;
+    margin: 0;
+    height: 300px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.topo_info{
+    margin-left: 10px;
+}
+.baixo_info span{
+    
 }

@@ -8,6 +8,7 @@
 }
 body{
     background-color: #FCF5E5;
+        overflow-x: hidden;
 }
 .divCadastro{
    margin-left: 40px;
@@ -41,10 +42,19 @@ main{
     border: 1px solid black;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
+    
 }
 .titu{
     transform: translate(75px, 25px);
-    padding: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    background-color: white;
+    width: 795px;
+    margin-left: 15px;
+    border:1px solid black ;
+    border-top-right-radius: 15px ;
+    border-bottom-right-radius: 15px ;
+    
 }
 button{
     width: 150px;
@@ -54,13 +64,16 @@ button{
     background-color: transparent;
     border: none;
     color: white;
+    
 }
 select{
     margin-left: 50px;
+    
 }
 h2{
     font-size: large;
 }
+
 #pao{
     transform: translate(-300px, -440px);
 }
@@ -91,17 +104,62 @@ h2{
 #ket{
     transform: rotate(45deg) translate(-340px, 100px);
     width: 600px;
+    z-index: 10;
 }
 #must{
     width: 600px ;
     transform: rotate(-45deg) translate(1000px, 700px);
+    z-index: 10;
+    
+}
+.mancha{
+    position: absolute;
+    width: 500px;
+    z-index: 2;
+
 }
 
 
 .divCadastro div, label, input{
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    
 }
 .divCadastro div, input{
     opacity: 0.9;
+}
+.titulo{
+    margin-top: 35px;
+    margin-left: 10px;
+    /*transform: rotate(-25deg);*/
+}
+.titulo2{
+    margin-left: 20px;
+    /*transform: rotate(-25deg);  */
+}
+.titulo p{
+    color: aliceblue;
+    text-shadow: 1px 1px black;
+    font-size: large;
+}
+.titulo2 p{
+    font-size: large;
+    color: rgb(255, 173, 101);
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+#ped{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    transform: rotate(25deg) translate(680px, -225px);
+    z-index: 2;
+    background-color: #FFFF99;
+}
+#prego{
+    position: absolute;
+    transform: translate(5px, 5px);
+    width: 15px;
+    height: 15px;
+    background-color: lightslategray;
+    border-radius: 30px;
 }

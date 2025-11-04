@@ -1,0 +1,107 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: rgb(69, 69, 69);
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #FCF5E5;
+}
+.divCadastro{
+   margin-left: 40px;
+   padding: 20px;
+   display: grid;
+   grid-template-columns: 340px 340px;
+   gap: 50px;
+}
+.divCadastro div{
+    margin-top: 20px;
+    margin-left: 30px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 340px;
+    background-color: aliceblue;
+}
+.divCadastro div:focus{
+    outline: 10px solid black;
+}
+input{
+    background-color: aliceblue;
+    border: none;
+}
+input:focus{
+    outline: none;
+}
+main{
+    transform: translate(300px, 130px);
+    width: 900px;
+    background-color: rgb(248, 248, 184);
+    border: 1px solid black;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.titu{
+    transform: translate(75px, 25px);
+    padding: 20px;
+}
+button{
+    width: 150px;
+    padding: 5px;
+    height: 55px;
+    transform: translate(654px, -19px);
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+select{
+    margin-left: 50px;
+}
+h2{
+    font-size: large;
+}
+#pao{
+    transform: translate(-300px, -440px);
+}
+#alfa{
+    transform: translate(-360px, -400px);
+    z-index: -1;
+}
+#toma{
+    transform: translate(-360px, -290px);
+    z-index: -2;
+}
+#quei{
+    transform: translate(-360px, -190px);
+    z-index: -3;
+}
+#carne{
+    transform: translate(-360px, -60px);
+    z-index: -4;
+}
+#paobaixo{
+    transform: translate(170px, 280px);
+    z-index: -5;
+}
+#sache{
+    transform: translate(608px, 439px);
+    z-index: -1;
+}
+#ket{
+    transform: rotate(45deg) translate(-340px, 100px);
+    width: 600px;
+}
+#must{
+    width: 600px ;
+    transform: rotate(-45deg) translate(1000px, 700px);
+}
+
+
+.divCadastro div, label, input{
+    position: relative;
+    z-index: 1;
+}
+.divCadastro div, input{
+    opacity: 0.9;
+}

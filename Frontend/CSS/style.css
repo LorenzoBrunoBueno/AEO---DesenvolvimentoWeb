@@ -1,7 +1,8 @@
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     color: rgb(69, 69, 69);
     padding: 0;
+    line-height: 1.6;
     margin: 0;
 }
 body{
@@ -156,14 +157,14 @@ footer div{
     margin-left: 270px;
     position: relative;
     z-index: 2  ;
-    bottom: 85px;
+    bottom: 95px;
     left: 50px;
 }
 .titulo2{
     margin-left: 270px;
     position: relative;
     z-index: 2  ;
-    bottom: 85px;
+    bottom: 100px;
     left: 60px;
 }
 .titulo p{
@@ -228,9 +229,6 @@ footer div{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.topo_info{
-    margin-left: 10px;
-}
-.baixo_info span{
-    
+.campo{
+    margin-left: 5px;
 }

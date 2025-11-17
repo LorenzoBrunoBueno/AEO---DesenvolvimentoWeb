@@ -1,0 +1,110 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(69,69,69);
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+body{
+  background-color: aliceblue;
+  overflow-x: hidden;
+}
+.usuarios-topo{
+  margin: 30px 100px 0 100px;
+  background-color: beige;
+  padding: 20px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+}
+.usuarios-topo h2{
+  margin-left: 10px;
+}
+.usuarios-desc{
+  margin: 10px 12px 0 12px;
+  max-width: 1000px;
+}
+.usuarios-lista{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 30px 100px 60px 100px;
+}
+.usuario-card{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background-color: rgb(255,173,101);
+  padding: 16px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+}
+.usuario-card img{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 4px solid black;
+  background-color: aliceblue;
+}
+.usuario-info{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.usuario-info h3{
+  background-color: antiquewhite;
+  padding: 6px 12px;
+  border: 3px solid black;
+  width: fit-content;
+}
+.email{
+  background-color: antiquewhite;
+  padding: 8px;
+  border: 3px solid black;
+  display: inline-block;
+}
+.detalhes{
+  background-color: antiquewhite;
+  padding: 8px;
+  border: 3px solid black;
+  width: fit-content;
+}
+.btn-perfil{
+  text-decoration: none;
+  background-color: rgb(69,69,69);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.btn-perfil:hover{
+  transform: scale(1.03);
+}
+@media (max-width: 900px){
+  .usuarios-lista{
+    grid-template-columns: 1fr;
+    margin: 20px;
+    gap: 20px;
+  }
+  .usuario-card{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .usuario-card img{
+    width: 60%;
+    height: auto;
+  }
+  .usuario-info h3, .email, .detalhes{
+    width: calc(100% - 24px);
+  }
+  .usuarios-topo{
+    margin: 20px;
+  }
+}

@@ -98,16 +98,19 @@ header{
     background-color: beige;
 }
 .icon-usuario:hover{
+    transition: 0.2s;
     background-color: red;
     border: 3px solid aliceblue;
     outline: 1px solid black;
-    transition: 0.3s ease-in-out;
 }
 li{
-
+   /* z-index: 1;
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;*/
 }
 li:hover{
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-out;
     background-color: red;
     box-shadow: 5px 5px rgb(0, 0, 0);
 
@@ -187,7 +190,7 @@ footer div{
     padding: 20px;
     border: 1px solid black;
     box-shadow: 5px 5px 5px 5px rgb(153, 153, 153);
-    background-color: rgb(255, 173, 101);
+    background-color: rgb(255, 173, 101);;
     overflow: hidden;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;

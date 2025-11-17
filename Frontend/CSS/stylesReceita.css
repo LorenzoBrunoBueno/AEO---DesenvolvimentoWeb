@@ -1,5 +1,5 @@
 *{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
     color: rgb(69, 69, 69);
     padding: 0;
     line-height: 1.6;
@@ -12,7 +12,7 @@ body{
 a{
     text-decoration: none;
 }
-li{
+.nav li{
     display: inline;
     text-decoration: none;
     list-style-type: none;
@@ -103,16 +103,13 @@ header{
     outline: 1px solid black;
     transition: 0.3s ease-in-out;
 }
-li{
-
-}
-li:hover{
+.nav li:hover{
     transition: 0.3s ease-in-out;
     background-color: red;
     box-shadow: 5px 5px rgb(0, 0, 0);
 
 }
-li:hover a{
+header li:hover a{
     color: aliceblue;
 }
 button:hover{
@@ -174,58 +171,86 @@ footer div{
     color: rgb(255, 173, 101);
     text-shadow: 1px 1px rgb(0, 0, 0);
 }
+
 .container{
-    margin: 100px;
-    gap: 150px;
-    display: grid;
-    grid-template-columns: 500px 500px;
-    margin-left: 175px;
-}
-.receita{
-    display: block;
-    width: 500px;
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px 5px rgb(153, 153, 153);
+    width: 80%;
+    margin: 5%;
+    margin-top: 2%;
+    margin-left: 10%;
+    display: flex;
+    border: 3px solid black;
+    flex-direction: column;
+    padding-top: 2%;
+    padding-bottom: 2%;
     background-color: rgb(255, 173, 101);
-    overflow: hidden;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
 }
-.receita h1{
-    padding: 5px;
-    padding-left: 20px;
-    border: 3px solid black;
+
+.info-geral{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.receita img{
-    margin-left: 0;
+
+.info-geral div{
+    padding: 2%;
+    background-color: azure;
+    width: 40%;
+    height: auto;
+    margin: 1%;
+    box-shadow: 1px 1px 3px black;
 }
-.recei_info{
-    padding: 20px;
-    border: 3px solid black;
-    width: 456px;
-    background-color:antiquewhite;
-    overflow: hidden;
-    position: relative;
+
+.info-geral img{
+    margin-top: 1%;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
 }
-.receita img{
-    transition: transform 0.5s ease-in-out;  
+
+
+.info-receita-preparo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.recei-titu{
-    background-color:antiquewhite;
+
+.info-receita-preparo div{
+    padding: 2%;
+    background-color: azure;
+    width: 40%;
+    height: auto;
+    margin: 1%;
+    box-shadow: 1px 1px 3px black
 }
-.receita:hover img{
-    transform: scale(1.2);
+
+.preparo-lista, .ingredientes-lista{
+    display: flex;
+    flex-direction: column;
 }
-#card-img{
-    border: 4px solid black;  
-    overflow: hidden;
-    padding: 0  ;
-    margin: 0;
-    height: 300px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+h1{
+    background-color: bisque;
+    padding: 2%;
+    border-top-left-radius: 7%;
+    border-bottom-right-radius: 7%;
+    margin-bottom: 5%;
+    padding-left: 4%;
+    border: 1px solid black;
 }
-.campo{
-    margin-left: 5px;
+
+h2{
+    background-color: rgb(255, 142, 4);
+    padding: 1%;
+    padding-left: 3%;
+    border-top-left-radius: 7%;
+    border-bottom-right-radius: 7%;
+    margin-bottom: 5%;
+    border: 1px solid black;
 }
+
+.preparo-lista li, .ingredientes-lista li{
+    padding: 2%;
+    margin-left: 10%;
+}
+
+

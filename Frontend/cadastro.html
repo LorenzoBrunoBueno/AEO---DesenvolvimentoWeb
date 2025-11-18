@@ -19,44 +19,55 @@
     <img class="mancha" style="transform: rotate(160deg) translate(-670px, -900px); z-index: -1;" src="img/splashM.png" alt="">
     <img class="mancha" style="transform: rotate(180deg) translate(-950px, 10px); z-index: -1;" src="img/splashM.png" alt="">
     <img class="mancha" style="transform: rotate(200deg) translate(-1160px, 140px);" src="img/splashM.png" alt="">
+
     <div id="ped">
         <div id="prego"></div>
-        <div  class="titulo">
+        <div class="titulo">
             <p>QUASETUDO</p>
         </div>
         <div class="titulo2">
             <p>GOSTOSO</p>
         </div>
     </div>
+
     <main>
-        <img id="pao" style="position: fixed; " src="IMG/2.png" alt="">
+        <img id="pao" style="position: fixed;" src="IMG/2.png" alt="">
+
         <div class="titu">
-                <h2>CADASTRO</h2>
+            <h2>CADASTRO</h2>
         </div>
+
+        <!-- FORMULÁRIO COMEÇA AQUI -->
+        <form action="../backend/salvar_usuario.php" method="POST">
+
         <div class="divCadastro">
             <div>
-                <label for="nome">Nome de Usuário</label>
-                <input type="text" id="inpNome">
+                <label for="inpNome">Nome de Usuário</label>
+                <input type="text" id="inpNome" name="nome" required>
             </div>
+
             <img id="alfa" src="IMG/1.png" style="position: fixed;" alt="">
+
             <div>
-                <label for="email">Email</label>
-                <input type="email" id="inpEmail">
+                <label for="inpEmail">Email</label>
+                <input type="email" id="inpEmail" name="email" required>
             </div>
 
             <div>
-                <label for="dtNascimento">Data de Nascimento</label>
-                <input type="date" id="inpNascimento">
+                <label for="inpNascimento">Data de Nascimento</label>
+                <input type="date" id="inpNascimento" name="data_nascimento">
             </div>
 
             <div>
-                <label for="cep">CEP</label>
-                <input type="text" id="inpCep">
+                <label for="inpCep">CEP</label>
+                <input type="text" id="inpCep" name="cep">
             </div>
+
             <img id="toma" src="IMG/5.png" style="position: fixed;" alt="">
+
             <div>
                 <label for="genero">Gênero</label>
-                <Select>
+                <Select name="genero">
                     <option value="Masc">Masculino</option>
                     <option value="Fem">Feminino</option>
                     <option value="Outro">Outro</option>
@@ -65,24 +76,26 @@
             </div>
 
             <div>
-                <label for="senha">Senha</label>
-                <input type="password" id="inpSenha">
+                <label for="inpSenha">Senha</label>
+                <input type="password" id="inpSenha" name="senha" required>
             </div>
+
             <img id="quei" style="position: fixed;" src="IMG/3.png" alt="">
 
-            <div>
-                <label for="salt">Salt</label>
-                <input type="text" id="inpSalt">
-            </div>
+            <!-- CAMPOS REMOVIDOS (Salt e UUID) — sem quebrar layout -->
+
             <img id="carne" style="position: fixed;" src="IMG/4.png" alt="">
-            <div>
-                <label for="uuid">UUID</label>
-                <input type="text" id="inpUUID">
-            </div>
+
             <img style="position: fixed;" id="paobaixo" src="img/7.png" alt="" width="480">
-                <button>Cadastrar</button>
+
+            <button type="submit">Cadastrar</button>
+
             <img width="250px" height="100px" id="sache" src="IMG/sache.png" style="position: fixed;" alt="">
         </div>
+
+        </form>
+        <!-- FORMULÁRIO TERMINA AQUI -->
+
     </main>
 </body>
 </html>

@@ -1,0 +1,107 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(69, 69, 69);
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+body{
+  background-color: aliceblue;
+  overflow-x: hidden;
+}
+.receitas-topo{
+  margin: 30px 100px 0 100px;
+  background-color: beige;
+  padding: 20px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+}
+.receitas-topo h2{
+  margin-left: 10px;
+}
+.receitas-desc{
+  margin: 10px 12px 0 12px;
+  max-width: 1000px;
+}
+.lista-receitas{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin: 30px 100px 60px 100px;
+}
+.receita-card{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 18px;
+  background-color: rgb(255, 173, 101);
+  padding: 16px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+  align-items: center;
+}
+.card-img img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 4px solid black;
+  background-color: aliceblue;
+}
+.recei_info{
+  padding: 12px;
+  border: 3px solid black;
+  background-color: antiquewhite;
+  overflow: hidden;
+}
+.receita-titulo{
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+.receita-resumo{
+  margin: 0 0 12px 0;
+}
+.receita-meta{
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.receita-actions{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.ver-receita{
+  text-decoration: none;
+  background-color: rgb(69,69,69);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.tag{
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+@media (max-width: 1100px){
+  .lista-receitas{
+    grid-template-columns: 1fr;
+    margin: 20px;
+  }
+  .receita-card{
+    grid-template-columns: 1fr;
+  }
+  .card-img img{
+    height: 300px;
+  }
+  .receitas-topo{
+    margin: 20px;
+  }
+}

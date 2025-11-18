@@ -1,0 +1,112 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(69, 69, 69);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+body{
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+header{
+    height: 150px;
+    width: 100%;
+    background-color: rgb(248, 248, 184);
+}
+.itens-header{
+    display: flex;
+}
+.itens-header img{
+    width: 130px;
+    height: 100px;
+    padding: 20px;
+    padding-left: 150px;
+}
+.titulo{
+    margin-left: 270px;
+    position: relative;
+    bottom: 95px;
+    left: 50px;
+}
+.titulo2{
+    margin-left: 270px;
+    position: relative;
+    bottom: 100px;
+    left: 60px;
+}
+.titulo p{
+    color: aliceblue;
+    text-shadow: 1px 1px black;
+    font-size: large;
+}
+.titulo2 p{
+    font-size: large;
+    color: rgb(255, 173, 101);
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+main{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.caixa-login{
+    background-color: beige;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px rgb(153, 153, 153);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 400px;
+    padding: 30px;
+    text-align: center;
+}
+.caixa-login h2{
+    margin-bottom: 20px;
+}
+.caixa-login form{
+    display: grid;
+    gap: 15px;
+}
+input{
+    width: 100%;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-left: 10px;
+    background-color: aliceblue;
+}
+input:focus{
+    outline: none;
+    border: 2px solid rgb(255, 173, 101);
+}
+button{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255, 173, 101);
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+}
+button:hover{
+    background-color: red;
+    color: aliceblue;
+    transition: 0.3s;
+}
+.cadastro-link{
+    margin-top: 15px;
+}
+.cadastro-link a{
+    color: red;
+}
+footer{
+    width: 100%;
+    height: 120px;
+    background-color: rgb(39, 34, 34);
+    color: aliceblue;
+    text-align: center;
+    padding-top: 45px;
+    font-size: 14px;
+}

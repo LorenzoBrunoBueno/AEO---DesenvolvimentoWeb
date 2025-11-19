@@ -1,0 +1,143 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(69,69,69);
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+body{
+  background-color: aliceblue;
+  overflow-x: hidden;
+}
+.refeicao-topo{
+  margin: 30px 100px 0 100px;
+  background-color: beige;
+  padding: 20px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.refeicao-topo h2{
+  margin: 0;
+}
+.ref-desc{
+  margin: 0;
+  color: rgb(69,69,69);
+}
+.ver-receita{
+  text-decoration: none;
+  background-color: rgb(69,69,69);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.pedido-container{
+  margin: 30px 100px 60px 100px;
+  background-color: rgb(255,173,101);
+  padding: 18px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+}
+.lista-itens{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 80px;
+}
+.vazio{
+  background-color: antiquewhite;
+  padding: 12px;
+  border: 3px solid black;
+}
+.item-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: antiquewhite;
+  padding: 10px;
+  border: 3px solid black;
+}
+.item-info{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.remover{
+  background-color: rgb(255,142,4);
+  color: white;
+  border: 1px solid black;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-perfil{
+  text-decoration: none;
+  background-color: rgb(69,69,69);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+  cursor: pointer;
+}
+.acoes{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  z-index: 50;
+}
+.modal.ativo{
+  display: flex;
+}
+.modal-conteudo{
+  background: beige;
+  padding: 20px;
+  width: 320px;
+  border: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 5px 5px 5px rgb(153,153,153);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-conteudo input{
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 6px;
+  background: aliceblue;
+}
+.modal-acoes{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+@media (max-width: 900px){
+  .refeicao-topo, .pedido-container{
+    margin: 20px;
+  }
+  .modal-conteudo{
+    width: 92%;
+  }
+  .acoes{
+    justify-content: center;
+  }
+}

@@ -173,30 +173,9 @@
     <script>
 
         const listaReceitas = document.getElementById('lista-receitas');
-
-
-        /*<article class="receita-card">
-          <div class="card-img" id="card-img">
-            <img src="IMG/Frango-assado-com-ervas.jpg" alt="Receita 1" />
-          </div>
-          <div class="recei_info">
-            <h3 class="receita-titulo">Frango Assado com Ervas</h3>
-            <p class="receita-resumo">
-              Frango suculento temperado com ervas frescas e assado até dourar,
-              acompanha arroz e salada.
-            </p>
-            <div class="receita-meta">
-              <span>Tempo: 1h 15min</span>
-              <span>Dificuldade: Média</span>
-            </div>
-            <div class="receita-actions">
-              <a class="ver-receita" href="receita-detalhe.html?">Ver receita</a>
-              <span class="tag">Carnes</span>
-            </div>
-          </div>
-        </article>*/
-
         
+
+        //Criando articles DOM
         fetch("../Backend/buscar_receitas.php")
             .then(response => response.json())
             .then(recei => {

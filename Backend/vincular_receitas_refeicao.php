@@ -13,11 +13,9 @@ foreach ($receitas as $idreceita) {
     $sql = "INSERT INTO refeicao_receita (receita_idreceita, refeicao_idrefeicao)
             VALUES (?, ?)";
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $idreceita, $idrefeicao);
-    $stmt->execute();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$idreceita, $idrefeicao]);
 }
 
 echo "Refeição montada com sucesso!";
-$conn->close();
 ?>

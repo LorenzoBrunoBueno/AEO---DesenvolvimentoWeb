@@ -165,7 +165,9 @@
 
       const listaReceitas = document.getElementById('lista-receitas');
 
-      fetch("../Backend/buscar_receitas.php")
+
+    function carregar(){
+       fetch("../Backend/buscar_receitas.php")
             .then(response => response.json())
             .then(recei => {
                 console.log(recei);
@@ -173,6 +175,9 @@
 
                    let article = document.createElement('article');
                    article.className = "receita-card";
+                   article.dataset.id = recei.receitas[i].idreceita;
+                   article.dataset.titulo = recei.receitas[i].titulo;
+                   article.dataset.resumo = recei.receitas[i].descricao;
                    let divImg = document.createElement('div');
                    divImg.className = "card-img";
                    let Img = document.createElement('img');
@@ -245,6 +250,9 @@
 
         })
         .catch(error => console.error("Erro:", error));
+    }
+     
+    carregar();
 
         
         function addCategoria(){
@@ -303,7 +311,11 @@
     (function(){
       function lerStorage(){
         const raw = localStorage.getItem('refeicaoItens');
-        try{ return raw ? JSON.parse(raw) : []; } catch { return []; }
+        try{ 
+          return raw ? JSON.parse(raw) : []; 
+        }catch{
+          return []; 
+        }
       }
       function gravarStorage(arr){
         localStorage.setItem('refeicaoItens', JSON.stringify(arr));
@@ -317,7 +329,31 @@
         };
       }
 
-      document.querySelectorAll('.selecionar-receita').forEach(btn=>{
+      document.addEventListener('click', function(e){
+        if (e.target.classList.contains('selecionar-receita')){
+          const btn = e.target;
+          const card = btn.closest('.receita-card');
+          if(!card) return;
+
+          const item  = criarItemDoCard(card);
+          const itens = lerStorage();
+
+          if(!itens.some(i => i.id === item.id)){
+            itens.push(item);
+            gravarStorage(itens);
+            btn.textContent =   "Selecionado";
+          }else{
+            btn.textContent = "Já Selecionado";
+          }
+
+          btn.disabled = true;
+          btn.style.opacity = "0.75";
+
+        }
+      });
+
+
+      /*document.querySelectorAll('.selecionar-receita').forEach(btn=>{
         btn.addEventListener('click', function(){
           const card = btn.closest('.receita-card');
           if(!card) return;
@@ -338,7 +374,7 @@
             btn.style.opacity = '0.75';
           }
         });
-      });
+      })*/;
 
       document.getElementById('finalizar-refeicao').addEventListener('click', function(){
         const itens = lerStorage();

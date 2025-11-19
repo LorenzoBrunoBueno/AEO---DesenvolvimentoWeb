@@ -1,0 +1,99 @@
+-- ================================
+-- INSERE CATEGORIAS
+-- ================================
+INSERT INTO categoria (categoria, ativo) VALUES
+('Carnes', 1),
+('Massas', 1),
+('Bebidas', 1),
+('Frutos do Mar', 1),
+('Bolos e Tortas', 1),
+('Sobremesas', 1),
+('Aperitivos', 1);
+
+-- ================================
+-- INSERE RECEITAS (5 por categoria = 35 receitas)
+-- Usando: cadastro_idusuario=1, preparo_idpreparo=1, dificuldade_iddificuldade=1, custo_idcusto=1
+-- imagem = NULL
+-- ================================
+
+-- CARNES (receitas 1 a 5)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Bife acebolado', 'Bife temperado com sal e pimenta, acompanhado de cebola dourada.', NULL, 1, 1, 1, 1),
+('Frango grelhado', 'Peito de frango marinado rapidamente e grelhado.', NULL, 1, 1, 1, 1),
+('Almôndegas simples', 'Almôndegas de carne moída com molho de tomate simples.', NULL, 1, 1, 1, 1),
+('Carne de panela rápida', 'Pedaços de carne cozidos até ficarem macios em tempero básico.', NULL, 1, 1, 1, 1),
+('Espetinho caseiro', 'Cubos de carne temperados e grelhados em palitos.', NULL, 1, 1, 1, 1);
+
+-- MASSAS (receitas 6 a 10)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Macarrão alho e óleo', 'Massa cozida com alho dourado e azeite.', NULL, 1, 1, 1, 1),
+('Lasanha simples', 'Camadas de massa, molho de tomate e queijo.', NULL, 1, 1, 1, 1),
+('Espaguete ao sugo', 'Espaguete com molho de tomate caseiro rápido.', NULL, 1, 1, 1, 1),
+('Ravioli ao manteiga e ervas', 'Ravioli simples salteado na manteiga com ervas.', NULL, 1, 1, 1, 1),
+('Penne com legumes', 'Penne misturado com legumes salteados e um toque de azeite.', NULL, 1, 1, 1, 1);
+
+-- BEBIDAS (receitas 11 a 15)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Suco de laranja', 'Suco natural espremido na hora.', NULL, 1, 1, 1, 1),
+('Vitamina de banana', 'Banana batida com leite e um pouco de açúcar.', NULL, 1, 1, 1, 1),
+('Chá gelado limão', 'Chá preto adoçado com limão e gelo.', NULL, 1, 1, 1, 1),
+('Suco de melancia', 'Melancia batida e coada, servido gelado.', NULL, 1, 1, 1, 1),
+('Limonada simples', 'Limão, água, açúcar e gelo — refrescante.', NULL, 1, 1, 1, 1);
+
+-- FRUTOS DO MAR (receitas 16 a 20)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Peixe assado simples', 'Filé de peixe temperado e assado com ervas básicas.', NULL, 1, 1, 1, 1),
+('Camarão na manteiga', 'Camarões salteados na manteiga e alho.', NULL, 1, 1, 1, 1),
+('Tilápia grelhada', 'Filé de tilápia grelhado com limão.', NULL, 1, 1, 1, 1),
+('Polvo rápido (cozido)', 'Pedaços de polvo cozidos e temperados levemente.', NULL, 1, 1, 1, 1),
+('Salada de mariscos', 'Mariscos cozidos misturados com ervas e azeite.', NULL, 1, 1, 1, 1);
+
+-- BOLOS E TORTAS (receitas 21 a 25)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Bolo de chocolate simples', 'Bolo caseiro com chocolate em pó e cobertura simples.', NULL, 1, 1, 1, 1),
+('Torta de limão fácil', 'Base de biscoito com recheio cremoso de limão.', NULL, 1, 1, 1, 1),
+('Bolo de cenoura', 'Bolo de cenoura macio com cobertura de chocolate.', NULL, 1, 1, 1, 1),
+('Torta de maçã rústica', 'Fatias de maçã em massa simples e assada.', NULL, 1, 1, 1, 1),
+('Bolo de fubá', 'Bolo tradicional de fubá, simples e gostoso.', NULL, 1, 1, 1, 1);
+
+-- SOBREMESAS (receitas 26 a 30)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Gelatina colorida', 'Cubinhos de gelatina misturados com creme.', NULL, 1, 1, 1, 1),
+('Pudim simples', 'Pudim tradicional feito com leite condensado.', NULL, 1, 1, 1, 1),
+('Mousse de maracujá', 'Mousse leve de maracujá fácil de preparar.', NULL, 1, 1, 1, 1),
+('Creme de papaia', 'Papaia batida com sorvete, servido gelado.', NULL, 1, 1, 1, 1),
+('Salada de frutas', 'Frutas da estação picadas e misturadas.', NULL, 1, 1, 1, 1);
+
+-- APERITIVOS (receitas 31 a 35)
+INSERT INTO receita (titulo, descricao, imagem, cadastro_idusuario, preparo_idpreparo, dificuldade_iddificuldade, custo_idcusto) VALUES
+('Torresmo crocante', 'Torresmo frito simples e crocante.', NULL, 1, 1, 1, 1),
+('Batata frita temperada', 'Batata frita com sal e páprica.', NULL, 1, 1, 1, 1),
+('Brusqueta de tomate', 'Pão tostado com tomate, alho e azeite.', NULL, 1, 1, 1, 1),
+('Palitinhos de queijo', 'Queijo empanado e frito — sabor simples.', NULL, 1, 1, 1, 1),
+('Azeitonas temperadas', 'Azeitonas marinadas em ervas e azeite.', NULL, 1, 1, 1, 1);
+
+-- ================================
+-- RELACIONAMENTO categoria_receita
+-- Assumindo IDs das receitas na ordem inserida: 1..35
+-- ================================
+
+-- Carnes (categoria_id = 1) -> receitas 1..5
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (1,1),(2,1),(3,1),(4,1),(5,1);
+
+-- Massas (categoria_id = 2) -> receitas 6..10
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (6,2),(7,2),(8,2),(9,2),(10,2);
+
+-- Bebidas (categoria_id = 3) -> receitas 11..15
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (11,3),(12,3),(13,3),(14,3),(15,3);
+
+-- Frutos do Mar (categoria_id = 4) -> receitas 16..20
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (16,4),(17,4),(18,4),(19,4),(20,4);
+
+-- Bolos e Tortas (categoria_id = 5) -> receitas 21..25
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (21,5),(22,5),(23,5),(24,5),(25,5);
+
+-- Sobremesas (categoria_id = 6) -> receitas 26..30
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (26,6),(27,6),(28,6),(29,6),(30,6);
+
+-- Aperitivos (categoria_id = 7) -> receitas 31..35
+INSERT INTO categoria_receita (receita_idreceita, categoria_idcategoria) VALUES (31,7),(32,7),(33,7),(34,7),(35,7);

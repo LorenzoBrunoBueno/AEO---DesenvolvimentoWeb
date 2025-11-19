@@ -75,26 +75,26 @@ h2{
 }
 
 #pao{
-    transform: translate(-300px, -440px);
+    transform: translate(-100px, -440px);
 }
 #alfa{
-    transform: translate(-360px, -400px);
+    transform: translate(-160px, -390px);
     z-index: -1;
 }
 #toma{
-    transform: translate(-360px, -290px);
+    transform: translate(-160px, -290px);
     z-index: -2;
 }
 #quei{
-    transform: translate(-360px, -190px);
+    transform: translate(-160px, -190px);
     z-index: -3;
 }
 #carne{
-    transform: translate(-360px, -60px);
+    transform: translate(-160px, -60px);
     z-index: -4;
 }
 #paobaixo{
-    transform: translate(170px, 280px);
+    transform: translate(360px, 280px);
     z-index: -5;
 }
 #sache{
@@ -151,7 +151,7 @@ h2{
     position: absolute;
     width: 130px;
     height: 130px;
-    transform: rotate(25deg) translate(680px, -225px);
+    transform: rotate(25deg) translate(870px, -310px);
     z-index: 2;
     background-color: #FFFF99;
 }

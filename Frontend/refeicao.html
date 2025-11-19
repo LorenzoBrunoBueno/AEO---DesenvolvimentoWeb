@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refeição</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/styleRefeicao.css">
+</head>
+<body>
+  <header>
+    <div class="itens-header">
+      <div>
+        <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+        <div class="titulo">
+          <p>QUASETUDO</p>
+        </div>
+        <div class="titulo2">
+          <p> GOSTOSO </p>
+        </div>
+      </div>
+      <div class="barraPesquisa">
+        <input type="text" id="inp-procurar" placeholder="Procurar">
+        <button id="btn-procurar">Procurar</button>
+      </div>
+      <div class="icon-usuario">
+        <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="">Todas as Receitas</a>
+                </li>
+                <li>
+                    <a href="">Carnes</a>
+                </li>
+                <li>
+                    <a href="">Massas</a>
+                </li>
+                <li>
+                    <a href="">Bebidas</a>
+                </li>
+                <li>
+                    <a href="">Frutos do Mar</a>
+                </li>
+                <li>
+                    <a href="">Bolos e Tortas</a>
+                </li>
+                <li>
+                    <a href="">Sobremesas</a>
+                </li>
+                <li>
+                    <a href="">Aperitivos e Molhos</a>
+                </li>
+                <li>
+                    <a href="">Chefs</a>
+                </li>
+            </ul>
+        </div>
+
+    
+    <section class="refeicao-topo">
+      <h2>Meu Pedido</h2>
+      <p class="ref-desc">Monte sua refeição adicionando receitas do cardápio.</p>
+      <button id="btn-criar" class="ver-receita">Criar refeição</button>
+    </section>
+
+    <section class="pedido-container">
+      <h3>Itens selecionados</h3>
+      <div id="lista-itens" class="lista-itens">
+        <p class="vazio">Nenhuma receita adicionada.</p>
+      </div>
+      <div class="acoes">
+        <button id="btn-limpar" class="btn-perfil">Limpar</button>
+        <a id="finalizar" class="btn-perfil" href="#">Finalizar</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Copyright</div>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-conteudo">
+      <h3>Nova Refeição</h3>
+      <label for="nome-ref">Nome da refeição</label>
+      <input id="nome-ref" type="text" placeholder="Ex: Almoço rápido">
+      <div class="modal-acoes">
+        <a id="adicionar-receita" class="ver-receita" href="receitas.html">Adicionar receita</a>
+        <button id="fechar-modal" class="btn-perfil">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const btnCriar = document.getElementById('btn-criar');
+    const fecharModal = document.getElementById('fechar-modal');
+    const lista = document.getElementById('lista-itens');
+    const btnLimpar = document.getElementById('btn-limpar');
+    const finalizar = document.getElementById('finalizar');
+
+    function carregarItens(){
+      const dados = localStorage.getItem('refeicaoItens');
+      const itens = dados ? JSON.parse(dados) : [];
+      lista.innerHTML = '';
+      if(itens.length === 0){
+        lista.innerHTML = '<p class="vazio">Nenhuma receita adicionada.</p>';
+        return;
+      }
+      itens.forEach((it, idx) => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = '<div class="item-info"><strong>'+it.titulo+'</strong><span>'+ (it.resumo || '') +'</span></div><button class="remover" data-i="'+idx+'">Remover</button>';
+        lista.appendChild(card);
+      });
+      document.querySelectorAll('.remover').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          const i = Number(e.currentTarget.dataset.i);
+          removerItem(i);
+        });
+      });
+    }
+
+    function removerItem(i){
+      const dados = localStorage.getItem('refeicaoItens');
+      const itens = dados ? JSON.parse(dados) : [];
+      itens.splice(i,1);
+      localStorage.setItem('refeicaoItens', JSON.stringify(itens));
+      carregarItens();
+    }
+
+    btnCriar.addEventListener('click', ()=> modal.classList.add('ativo'));
+    fecharModal.addEventListener('click', ()=> modal.classList.remove('ativo'));
+    btnLimpar.addEventListener('click', ()=>{
+      localStorage.removeItem('refeicaoItens');
+      carregarItens();
+    });
+
+    finalizar.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const nome = document.getElementById('nome-ref').value || 'Minha refeição';
+      const dados = localStorage.getItem('refeicaoItens');
+      const itens = dados ? JSON.parse(dados) : [];
+      if(itens.length === 0) return;
+      const pedido = { nome, itens, criadoEm: new Date().toISOString() };
+      localStorage.setItem('ultimoPedido', JSON.stringify(pedido));
+      modal.classList.remove('ativo');
+      localStorage.removeItem('refeicaoItens');
+      carregarItens();
+      alert('Refeição finalizada: ' + nome);
+    });
+
+    window.addEventListener('storage', function(e){
+      if(e.key === 'refeicaoItens') carregarItens();
+    });
+
+    carregarItens();
+  </script>
+</body>
+</html>

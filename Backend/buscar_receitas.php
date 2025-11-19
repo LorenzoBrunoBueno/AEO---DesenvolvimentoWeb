@@ -1,24 +1,19 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "quasetudogostoso";
 
-$conn = new mysqli($host, $user, $pass, $db);
+require __DIR__ . "/db.php";
 
-if ($conn->connect_error) {
-    die("Erro: " . $conn->connect_error);
-}
+$sqlRece = "SELECT idreceita, titulo, descricao FROM receita ORDER BY titulo";
 
-$sql = "SELECT idreceita, titulo FROM receita ORDER BY titulo";
-$result = $conn->query($sql);
+$resultRece = $pdo->query($sqlRece);
 
-$receitas = [];
+$receitas = $resultRece->fetchAll(PDO::FETCH_ASSOC);
 
-while ($row = $result->fetch_assoc()) {
-    $receitas[] = $row;
-}
+$sqlCate = "SELECT categoria.idcategoria, categoria.categoria, categoria_receita.receita_idreceita FROM categoria INNER JOIN categoria_receita ON categoria.idcategoria = categoria_receita.categoria_idcategoria;";
+
+$resultCate = $pdo->query($sqlCate);
+
+$CategoriasReceitas = $resultCate->fetchAll(PDO::FETCH_ASSOC); 
 
 header("Content-Type: application/json");
-echo json_encode($receitas);
+echo json_encode([ "receitas" => $receitas, "CategoriasReceitas" => $CategoriasReceitas]);
 ?>

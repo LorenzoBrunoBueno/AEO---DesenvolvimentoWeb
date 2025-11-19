@@ -1,15 +1,6 @@
 <?php
-// Conexão
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "quasetudogostoso";
 
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die("Erro: " . $conn->connect_error);
-}
+require "db.php";
 
 // Recebe dados do formulário
 $categoria = $_POST["categoria"] ?? null;
@@ -23,15 +14,12 @@ if (empty($categoria)) {
 // SQL para inserir
 $sql = "INSERT INTO categoria (categoria, ativo) VALUES (?, ?)";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("si", $categoria, $ativo);
+$stmt = $pdo->prepare($sql);
 
-if ($stmt->execute()) {
+if ($stmt->execute([$categoria, $ativo])) {
     echo "Categoria cadastrada com sucesso!";
 } else {
     echo "Erro ao cadastrar categoria: " . $stmt->error;
 }
 
-$stmt->close();
-$conn->close();
 ?>

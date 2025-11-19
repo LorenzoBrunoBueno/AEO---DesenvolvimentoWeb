@@ -1,14 +1,6 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "quasetudogostoso";
 
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+require "db.php";
 
 $idrefeicao = $_POST["idrefeicao"] ?? null;
 $refeicao = $_POST["refeicao"] ?? null;

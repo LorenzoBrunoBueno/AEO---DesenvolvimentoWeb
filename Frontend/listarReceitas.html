@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receitas</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/styleReceitas.css" />
+  </head>
+  <body>
+ <header>
+       <div class="logo">
+            <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+       </div>
+       <div class="titulos">
+            <div  class="titulo">
+                <p>QUASETUDO</p>
+            </div>
+            <div class="titulo2">
+                <p>
+                    GOSTOSO
+                </p>
+            </div>
+       </div>
+       <div class="icone-usuario">
+            <img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt="">
+       </div>
+   </header>
+
+    <main>
+  <div class="nav">
+            <ul>
+                  <li>
+                    <a href="">Home</a>
+                </li>
+
+                <li>
+                    <a href="">Todas as Receitas</a>
+                </li>
+
+                <li>
+                    <a href="">Suas Receitas</a>
+                </li>
+               
+                <li>
+                    <a href="">Refeição</a>
+                </li>
+                
+                </li>
+                <li>
+                    <a href="">Chefs</a>
+                </li>
+            </ul>
+        </div>
+
+      <section class="receitas-topo">
+        <h2>Receitas</h2>
+        <p class="receitas-desc">
+          Explore nossas receitas: fotos, tempo de preparo, nível de dificuldade
+          e uma breve descrição.
+        </p>
+
+        <div class="filtro-categoria">
+          <select onchange="filtrar()" name="" id="lista-filto">
+  
+          </select>
+          <button onclick="addCategoria()">Adicionar Categoria</button>
+        </div>
+
+      </section>
+
+      <section id="lista-receitas" class="lista-receitas">
+        <!-- 
+        <article class="receita-card">
+          <div class="card-img" id="card-img">
+            <img src="IMG/Frango-assado-com-ervas.jpg" alt="Receita 1" />
+          </div>
+          <div class="recei_info">
+            <h3 class="receita-titulo">Frango Assado com Ervas</h3>
+            <p class="receita-resumo">
+              Frango suculento temperado com ervas frescas e assado até dourar,
+              acompanha arroz e salada.
+            </p>
+            <div class="receita-meta">
+              <span>Tempo: 1h 15min</span>
+              <span>Dificuldade: Média</span>
+            </div>
+            <div class="receita-actions">
+              <a class="ver-receita" href="receita-detalhe.html?">Ver receita</a>
+              <span class="tag">Carnes</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="receita-card">
+          <div class="card-img" id="card-img">
+            <img
+              src="IMG/galo-imagem-receitas-macarrao-com-molho-branco-share.jpg"
+              alt="Receita 2"
+            />
+          </div>
+          <div class="recei_info">
+            <h3 class="receita-titulo">Espaguete ao Molho Cremoso</h3>
+            <p class="receita-resumo">
+              Molho cremoso com queijo e toque de noz-moscada servido sobre
+              massa al dente.
+            </p>
+            <div class="receita-meta">
+              <span>Tempo: 30min</span>
+              <span>Dificuldade: Fácil</span>
+            </div>
+            <div class="receita-actions">
+              <a class="ver-receita" href="receita-detalhe.html">Ver receita</a>
+              <span class="tag">Massas</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="receita-card">
+          <div class="card-img" id="card-img">
+            <img
+              src="IMG/d83bd8f3-smoothie-tropical_s_thumb.jpg"
+              alt="Receita 3"
+            />
+          </div>
+          <div class="recei_info">
+            <h3 class="receita-titulo">Smoothie Tropical</h3>
+            <p class="receita-resumo">
+              Bebida refrescante com frutas tropicais, iogurte e um toque de
+              mel.
+            </p>
+            <div class="receita-meta">
+              <span>Tempo: 10min</span>
+              <span>Dificuldade: Muito fácil</span>
+            </div>
+            <div class="receita-actions">
+              <a class="ver-receita" href="receita-detalhe.html">Ver receita</a>
+              <span class="tag">Bebidas</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="receita-card">
+          <div class="card-img" id="card-img">
+            <img
+              src="IMG/1d22d96039f98608bc9338debb1b4579.jpg"
+              alt="Receita 4"
+            />
+          </div>
+          <div class="recei_info">
+            <h3 class="receita-titulo">Torta de Limão</h3>
+            <p class="receita-resumo">
+              Torta cítrica com massa crocante e recheio cremoso finalizada com
+              merengue.
+            </p>
+            <div class="receita-meta">
+              <span>Tempo: 1h</span>
+              <span>Dificuldade: Média</span>
+            </div>
+            <div class="receita-actions">
+              <a class="ver-receita" href="receita-detalhe.html">Ver receita</a>
+              <span class="tag">Bolos e Tortas</span>
+            </div>
+          </div>
+        </article>
+        -->
+      </section>
+    </main>
+
+    <footer>
+      <div>Copyright</div>
+    </footer>
+    <script>
+
+        const listaReceitas = document.getElementById('lista-receitas');
+
+
+        /*<article class="receita-card">
+          <div class="card-img" id="card-img">
+            <img src="IMG/Frango-assado-com-ervas.jpg" alt="Receita 1" />
+          </div>
+          <div class="recei_info">
+            <h3 class="receita-titulo">Frango Assado com Ervas</h3>
+            <p class="receita-resumo">
+              Frango suculento temperado com ervas frescas e assado até dourar,
+              acompanha arroz e salada.
+            </p>
+            <div class="receita-meta">
+              <span>Tempo: 1h 15min</span>
+              <span>Dificuldade: Média</span>
+            </div>
+            <div class="receita-actions">
+              <a class="ver-receita" href="receita-detalhe.html?">Ver receita</a>
+              <span class="tag">Carnes</span>
+            </div>
+          </div>
+        </article>*/
+
+        
+        fetch("../Backend/buscar_receitas.php")
+            .then(response => response.json())
+            .then(recei => {
+                console.log(recei);
+                for (let i = 0; i < recei.receitas.length; i++){
+
+                   let article = document.createElement('article')
+                   article.className = "receita-card";
+                   let divImg = document.createElement('div')
+                   divImg.className = "card-img";
+                   let Img = document.createElement('img')
+                   Img.src = "IMG/Frango-assado-com-ervas.jpg";
+                   let divReceInfo = document.createElement('div')
+                   divReceInfo.className = "recei_info";
+                   let h3Titulo = document.createElement('h3')
+                   h3Titulo.className = "receita-titulo";
+                   let paraResumo = document.createElement('p')
+                   paraResumo.className = "receita-resumo";
+                   let divReceMeta = document.createElement('div')
+                   divReceMeta.className = "receita-meta";
+                   let spanTempo = document.createElement('span')
+                   spanTempo.textContent = "Tempo: 1h 15min";
+                   let spanDifi = document.createElement('span')
+                   spanDifi.textContent = "Dificuldade: Média";
+                   let divReceAct = document.createElement('div')
+                   divReceAct.className = "receita-actions";
+                   let linkReceita = document.createElement('a')
+                   linkReceita.className = "ver-receita";
+                   let spanCategoria = document.createElement('span')
+                   spanCategoria.className = "tag";
+
+                   h3Titulo.textContent = recei.receitas[i].titulo;
+                   paraResumo.textContent = recei.receitas[i].descricao;
+                   for (let j = 0; j < recei.CategoriasReceitas.length; j++){
+                     if(recei.receitas[i].idreceita == recei.CategoriasReceitas[j].receita_idreceita){
+                        spanCategoria.textContent = recei.CategoriasReceitas[j].categoria;
+                        break;
+                     }
+                   }
+                   //spanCategoria.textContent = "Bolos"
+                   linkReceita.textContent = "ver receita"
+
+                   divReceAct.appendChild(linkReceita);
+                   divReceAct.appendChild(spanCategoria);
+
+                   divReceMeta.appendChild(spanTempo);
+                   divReceMeta.appendChild(spanDifi);
+
+                   divReceInfo.appendChild(h3Titulo);
+                   divReceInfo.appendChild(paraResumo);
+                   divReceInfo.appendChild(divReceMeta);
+                   divReceInfo.appendChild(divReceAct);
+
+                   divImg.appendChild(Img);
+
+                   article.appendChild(divImg);
+                   article.appendChild(divReceInfo);
+
+                   listaReceitas.appendChild(article);
+
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        const listafiltro = document.getElementById('lista-filto');
+
+        fetch("../Backend/buscar_categorias.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    var option = document.createElement('option');
+                    option.textContent = dados[i].categoria;
+                    listafiltro.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        
+        function addCategoria(){
+
+            var novaCategoria = prompt("Insira o nome da nova categoria: ");
+
+            if(!novaCategoria){
+                console.log("Insira uma categoria corretamente");
+                return;
+            }else{
+
+                const formData = new FormData();
+                formData.append("categoria", novaCategoria);
+                formData.append("ativo", 1);
+
+
+                fetch("../Backend/cadastrar_categoria.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => res.text())
+                .then(res => {
+                    alert(res); // mostra resposta do PHP
+                })
+                .catch(err => console.error("Erro:", err));
+            }
+
+           while (listafiltro.options.length > 0){
+            listafiltro.remove(0)
+           }
+         
+
+             fetch("../Backend/buscar_categorias.php")
+                .then(response => response.json())
+                .then(dados => {
+
+                    for (let i = 0; i < dados.length; i++){
+                        var option = document.createElement('option');
+                        option.textContent = dados[i].categoria;
+                        listafiltro.appendChild(option);
+                    }
+
+            })
+            .catch(error => console.error("Erro:", error));
+
+        }
+
+        function filtrar(){
+
+        }
+
+    </script>
+  </body>
+</html>

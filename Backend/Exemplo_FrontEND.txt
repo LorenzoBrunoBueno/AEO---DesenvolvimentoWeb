@@ -1,0 +1,94 @@
+// 1. Buscando receitas---------------------------------------------------------------------------------------
+
+async function pegarReceitas() {
+    const res = await fetch("buscar_receitas.php");
+    const data = await res.json();
+
+    data.forEach(r => {
+        document.querySelector("ul").innerHTML += `
+            <li>
+                <input type="checkbox" value="${r.idreceita}">
+                ${r.titulo}
+            </li>
+        `;
+    });
+}
+
+// 2. Mandando os dados----------------------------------------------------------------------------------------
+
+async function mandar() {
+    const nomeRefeicao = document.getElementById("nomeRefeicao").value;
+
+    const criar = await fetch("cadastrar_refeicao.php", {
+        method: "POST",
+        body: new URLSearchParams({ refeicao: nomeRefeicao })
+    });
+
+    const idrefeicao = await criar.text();
+
+    const selecionadas = [...document.querySelectorAll("input[type=checkbox]:checked")]
+                            .map(c => c.value);
+
+    await fetch("vincular_receitas_refeicao.php", {
+        method: "POST",
+        body: new URLSearchParams({
+            idrefeicao,
+            "receitas[]": selecionadas
+        })
+    });
+
+    alert("Refeição cadastrada com sucesso!");
+}
+
+// 3. Cadastrar Refeicao-------------------------------------------------------------------
+
+<form action="cadastrar_refeicao.php" method="POST">
+    <label>Nome da Refeição:</label>
+    <input type="text" name="refeicao" required>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+
+// 4. Cadastrar receitas
+
+<form action="cadastrar_receita.php" method="POST">
+
+    <label>Título:</label>
+    <input type="text" name="titulo" required>
+
+    <label>Descrição:</label>
+    <textarea name="descricao"></textarea>
+
+    <label>ID do Usuário:</label>
+    <input type="number" name="idusuario" required>
+
+    <label>Preparo:</label>
+    <select name="preparo_idpreparo" required></select>
+
+    <label>Dificuldade:</label>
+    <select name="dificuldade_iddificuldade" required></select>
+
+    <label>Custo:</label>
+    <select name="custo_idcusto" required></select>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+
+// 5. Cadastrar Categoria
+
+<form action="cadastrar_categoria.php" method="POST">
+
+    <label>Nome da Categoria:</label>
+    <input type="text" name="categoria" required>
+
+    <label>Ativo:</label>
+    <select name="ativo">
+        <option value="1">Ativo</option>
+        <option value="0">Inativo</option>
+    </select>
+
+    <button type="submit">Cadastrar</button>
+</form>
+

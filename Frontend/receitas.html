@@ -148,10 +148,12 @@
     // - "Selecionar receita" adiciona a receita ao array salvo em localStorage em 'refeicaoItens' (sem duplicatas)
     // - "Finalizar refeição" navega para refeicao.html (mesmo domínio) onde o arquivo refeicao.html já lê 'refeicaoItens' do localStorage
     (function(){
+      
       function lerStorage(){
         const raw = localStorage.getItem('refeicaoItens');
         try{ return raw ? JSON.parse(raw) : []; } catch { return []; }
       }
+
       function gravarStorage(arr){
         localStorage.setItem('refeicaoItens', JSON.stringify(arr));
       }
@@ -168,17 +170,19 @@
         btn.addEventListener('click', function(){
           const card = btn.closest('.receita-card');
           if(!card) return;
-          const item = criarItemDoCard(card);
-          const itens = lerStorage();
-          const exista = itens.some(i => i.id === item.id);
+            const item = criarItemDoCard(card);
+            const itens = lerStorage();
+            const exista = itens.some(i => i.id === item.id);
           if(!exista){
             itens.push(item);
             gravarStorage(itens);
+
             // feedback rápido sem usar alert (para parecer natural)
             btn.textContent = 'Selecionado';
             btn.disabled = true;
             btn.style.opacity = '0.75';
           } else {
+
             // caso já exista, apenas indicar visualmente
             btn.textContent = 'Já selecionado';
             btn.disabled = true;

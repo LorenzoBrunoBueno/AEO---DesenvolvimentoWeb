@@ -37,6 +37,7 @@ input:focus{
 }
 main{
     transform: translate(300px, 130px);
+    /*transform: translate(500px, 130px);*/
     width: 900px;
     background-color: rgb(248, 248, 184);
     border: 1px solid black;
@@ -76,30 +77,46 @@ h2{
 
 #pao{
     transform: translate(-100px, -440px);
+    transform: translate(-300px, -440px);
 }
 #alfa{
     transform: translate(-160px, -390px);
+    transform: translate(-360px, -390px);
     z-index: -1;
 }
 #toma{
     transform: translate(-160px, -290px);
+    transform: translate(-360px, -290px);
+
     z-index: -2;
 }
 #quei{
     transform: translate(-160px, -190px);
+    transform: translate(-360px, -190px);
+
     z-index: -3;
 }
 #carne{
     transform: translate(-160px, -60px);
+    transform: translate(-360px, -60px);
+
     z-index: -4;
 }
 #paobaixo{
     transform: translate(360px, 280px);
+    transform: translate(175px, 260px);
+
     z-index: -5;
 }
 #sache{
-    transform: translate(608px, 439px);
+    width: 250px;
+    height: 100px;
+    transform: translate(608px, 320px);
+    position: absolute;
     z-index: -1;
+}
+#sache:hover{
+    transform: scale(1.2);
 }
 #ket{
     transform: rotate(45deg) translate(-340px, 100px);
@@ -152,6 +169,7 @@ h2{
     width: 130px;
     height: 130px;
     transform: rotate(25deg) translate(870px, -310px);
+     transform: rotate(25deg) translate(670px, -230px);
     z-index: 2;
     background-color: #FFFF99;
 }

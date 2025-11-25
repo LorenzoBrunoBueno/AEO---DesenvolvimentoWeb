@@ -31,15 +31,15 @@
   <div class="nav">
             <ul>
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
 
                 <li>
-                    <a href="receitas.html">Todas as Receitas</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
 
                 <li>
-                    <a href="receita.html">Suas Receitas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
                
                 <li>
@@ -61,7 +61,7 @@
         </p>
 
         <div class="filtro-categoria">
-          <select onchange="filtrar()" name="" id="lista-filto">
+          <select name="" id="lista-filto">
   
           </select>
           <button onclick="addCategoria()">Adicionar Categoria</button>
@@ -103,7 +103,8 @@
     <script>
 
         const listaReceitas = document.getElementById('lista-receitas');
-        
+        var listafiltro = document.getElementById('lista-filto');
+
 
         //Criando articles DOM
         fetch("../Backend/buscar_receitas.php")
@@ -146,7 +147,8 @@
                      }
                    }
                    //spanCategoria.textContent = "Bolos"
-                   linkReceita.textContent = "ver receita"
+                   linkReceita.textContent = "ver receita";
+                   linkReceita.href = "../Frontend/receita.html";
 
                    divReceAct.appendChild(linkReceita);
                    divReceAct.appendChild(spanCategoria);
@@ -171,7 +173,7 @@
         })
         .catch(error => console.error("Erro:", error));
 
-        const listafiltro = document.getElementById('lista-filto');
+        listafiltro = document.getElementById('lista-filto');
 
         fetch("../Backend/buscar_categorias.php")
             .then(response => response.json())
@@ -232,9 +234,112 @@
 
         }
 
-        function filtrar(){
+         listafiltro.addEventListener('change', filtrarCategoria);
+
+        function filtrarCategoria(){
+
+            listafiltro = document.getElementById('lista-filto');
+
+            listaReceitas.innerHTML = "";
+
+            const categoriaSelect = listafiltro.options[listafiltro.selectedIndex].text;
+
+            //const url = "../Backend/buscar_receitas.php?categoria="+ encodeURIComponent(categoriaSelect);
+
+            fetch("../Backend/buscar_receitas.php")
+            .then(response => response.json())
+            .then(recei => {
+                console.log(recei);
+                for (let i = 0; i < recei.receitas.length; i++){
+
+                  var categoriaTitulo;
+
+                  for (let j = 0; j < recei.CategoriasReceitas.length; j++){
+                     if(recei.receitas[i].idreceita == recei.CategoriasReceitas[j].receita_idreceita){
+                        categoriaTitulo = recei.CategoriasReceitas[j].categoria;
+                        break;
+                     }
+                   }
+
+                   if(categoriaTitulo == categoriaSelect){
+                      let article = document.createElement('article');
+                      article.className = "receita-card";
+                      article.dataset.id = recei.receitas[i].idreceita;
+                      article.dataset.titulo = recei.receitas[i].titulo;
+                      article.dataset.resumo = recei.receitas[i].descricao;
+                      let divImg = document.createElement('div');
+                      divImg.className = "card-img";
+                      let Img = document.createElement('img');
+                      Img.src = "IMG/Frango-assado-com-ervas.jpg";
+                      let divReceInfo = document.createElement('div');
+                      divReceInfo.className = "recei_info";
+                      let h3Titulo = document.createElement('h3');
+                      h3Titulo.className = "receita-titulo";
+                      let paraResumo = document.createElement('p');
+                      paraResumo.className = "receita-resumo";
+                      let divReceMeta = document.createElement('div');
+                      divReceMeta.className = "receita-meta";
+                      let spanTempo = document.createElement('span');
+                      spanTempo.textContent = "Tempo: 1h 15min";
+                      let spanDifi = document.createElement('span');
+                      spanDifi.textContent = "Dificuldade: Média";
+                      let divReceAct = document.createElement('div');
+                      divReceAct.className = "receita-actions";
+                      let buttonReceita = document.createElement('button');
+                      buttonReceita.className = "selecionar-receita ver-receita";
+                      buttonReceita.type = "button";
+                      let spanCategoria = document.createElement('span');
+                      spanCategoria.className = "tag";
+
+                      h3Titulo.textContent = recei.receitas[i].titulo;
+                      paraResumo.textContent = recei.receitas[i].descricao;
+                  
+                      spanCategoria.textContent = categoriaTitulo;
+                      buttonReceita.textContent = "Selecionar Receita";
+
+                      divReceAct.appendChild(buttonReceita);
+                      divReceAct.appendChild(spanCategoria);
+
+                      divReceMeta.appendChild(spanTempo);
+                      divReceMeta.appendChild(spanDifi);
+
+                      divReceInfo.appendChild(h3Titulo);
+                      divReceInfo.appendChild(paraResumo);
+                      divReceInfo.appendChild(divReceMeta);
+                      divReceInfo.appendChild(divReceAct);
+
+                      divImg.appendChild(Img);
+
+                      article.appendChild(divImg);
+                      article.appendChild(divReceInfo);
+
+                      listaReceitas.appendChild(article);
+                   }
+
+                 
+
+                }
+
+          })
+          .catch(error => console.error("Erro:", error));
+
+          listafiltro.innerHTML = "";
+
+          fetch("../Backend/buscar_categorias.php")
+              .then(response => response.json())
+              .then(dados => {
+
+                  for (let i = 0; i < dados.length; i++){
+                      var option = document.createElement('option');
+                      option.textContent = dados[i].categoria;
+                      listafiltro.appendChild(option);
+                  }
+
+          })
+          .catch(error => console.error("Erro:", error));
 
         }
+        window.filtrarCategoria = filtrarCategoria;
 
     </script>
   </body>

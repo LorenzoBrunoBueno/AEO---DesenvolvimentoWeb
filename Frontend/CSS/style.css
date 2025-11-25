@@ -120,7 +120,7 @@ header{
     text-align: center;
     padding: 0;
     margin-top: 45px;
-    margin-left: 115px;
+    margin-left: 915px;
     border: 1px solid black;
     border-radius: 35px;
     background-color: beige;
@@ -179,23 +179,23 @@ footer div{
     margin-left: 270px;
     position: relative;
     z-index: 2  ;
-    bottom: 95px;
-    left: 50px;
+    bottom: 105px;
+    left: 433px;
 }
 .titulo2{
     margin-left: 270px;
     position: relative;
     z-index: 2  ;
-    bottom: 100px;
-    left: 60px;
+    bottom: 110px;
+    left: 450px;
 }
 .titulo p{
     color: aliceblue;
     text-shadow: 1px 1px black;
-    font-size: large;
+    font-size: x-large;
 }
 .titulo2 p{
-    font-size: large;
+    font-size: x-large;
     color: rgb(255, 173, 101);
     text-shadow: 1px 1px rgb(0, 0, 0);
 }
@@ -254,3 +254,5 @@ footer div{
 .campo{
     margin-left: 5px;
 }
+
+

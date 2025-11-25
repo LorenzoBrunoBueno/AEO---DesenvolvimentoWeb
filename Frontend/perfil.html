@@ -30,12 +30,12 @@
             <div class="bloco"></div>
           </div>
 
-          <!-- Barra de pesquisa (ainda sem funcionalidade JS) -->
+          <!-- Barra de pesquisa (ainda sem funcionalidade JS) 
           <div class="barraPesquisa">
             <input type="text" id="inp-procurar">
             <button id="btn-procurar">Procurar</button>
           </div>
-
+          -->
           <!-- Ícone que leva para a página de perfil -->
           <div class="icon-usuario">
             <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
@@ -43,34 +43,32 @@
 
         </div>
     </header>
-    <img id="ket" src="IMG/ket.png" style="position: absolute;" alt="">
-    <img id="must" src="IMG/must.png" style="position: absolute;" alt="">
-
-    <img class="mancha" style="transform: rotate(45deg) translate(500px, 380px); " src="img/splashK.png" alt="">
-    <img class="mancha" style="transform: rotate(100deg) translate(400px, -1500px);"  src="img/splashK.png" alt="">
-    <img class="mancha" style="transform: rotate(160deg) translate(190px, -200px);" src="img/splashK.png" alt="">
-    <img class="mancha" style="transform: translate(100px, 50px); z-index: -1" src="img/splashK.png" alt="">
-
-    <img class="mancha" style="transform: rotate(100deg) translate(590px, 140px);" src="img/splashM.png" alt="">
-    <img class="mancha" style="transform: rotate(160deg) translate(-670px, -900px); z-index: -1;" src="img/splashM.png" alt="">
-    <img class="mancha" style="transform: rotate(180deg) translate(-1450px, 100px); z-index: -1;" src="img/splashM.png" alt="">
-    <img class="mancha" style="transform: rotate(200deg) translate(-1360px, 150px);" src="img/splashM.png" alt="">
-
 
     <main>
 
         <!-- Menu de navegação principal (mantido igual em todas as páginas) -->
         <div class="nav">
             <ul>
-                <li><a href="index.html">Todas as Receitas</a></li>
-                <li><a href="index.html">Carnes</a></li>
-                <li><a href="index.html">Massas</a></li>
-                <li><a href="index.html">Bebidas</a></li>
-                <li><a href="index.html">Frutos do Mar</a></li>
-                <li><a href="index.html">Bolos e Tortas</a></li>
-                <li><a href="index.html">Sobremesas</a></li>
-                <li><a href="index.html">Aperitivos e Molhos</a></li>
-                <li><a href="index.html">Chefs</a></li>
+                  <li>
+                    <a href="index.php">Home</a>
+                </li>
+
+                <li>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
+                </li>
+
+                <li>
+                    <a href="listarReceitas.html">Suas Receitas</a>
+                </li>
+               
+                <li>
+                    <a href="refeicao.html">Refeição</a>
+                </li>
+                
+                </li>
+                <li>
+                    <a href="usuarios.html">Chefs</a>
+                </li>
             </ul>
         </div>
 
@@ -90,6 +88,7 @@
                 <p><strong>CEP:</strong> 89200-000</p>
                 <p><strong>Gênero:</strong> Masculino</p>
                 <p><strong>UUID:</strong> 123e4567-e89b-12d3-a456-426614174000</p>
+
             </div>
 
             <!-- Botões de ação do perfil -->
@@ -98,15 +97,10 @@
                 <a href="Cadastro.html">Editar Perfil</a>
 
                 <!-- "Sair" leva de volta ao login -->
-                <a id="sair" href="login.html">Sair</a>
+                <a id="sair" href="../Backend/logout.php">Sair</a>
             </div>
-        </div>
 
 
-
-
-        
-        
 
 
         </section>

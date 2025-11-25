@@ -7,58 +7,44 @@
     <link rel="stylesheet" href="CSS/stylesReceita.css">
 </head>
 <body>
-    <header>
-        <div class="itens-header">
-            
-            <div>
-                <img  src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
-                <div  class="titulo">
-                    <p>QUASETUDO</p>
-                </div>
-                <div class="titulo2">
-                    <p>
-                        GOSTOSO
-                    </p>
-                </div>
-                <div class="faixa"></div>
-                <div class="bloco"></div>
+      <header>
+       <div class="logo">
+            <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+       </div>
+       <div class="titulos">
+            <div  class="titulo">
+                <p>QUASETUDO</p>
             </div>
-            <div class="barraPesquisa">
-                <input type="text" id="inp-procurar">
-                <button id="btn-procurar">Procurar</button>
-           </div>
-           <div class="icon-usuario">
-                 <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
-           </div>
-        </div>
-    </header>
+            <div class="titulo2">
+                <p>
+                    GOSTOSO
+                </p>
+            </div>
+       </div>
+       <div class="icone-usuario">
+           <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
+       </div>
+   </header>
     <main>
 
         <div class="nav">
             <ul>
-                <li>
-                    <a href="index.html">Todas as Receitas</a>
+                  <li>
+                    <a href="index.php">Home</a>
                 </li>
+
                 <li>
-                    <a href="">Carnes</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
+
                 <li>
-                    <a href="">Massas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
+               
                 <li>
-                    <a href="">Bebidas</a>
+                    <a href="refeicao.html">Refeição</a>
                 </li>
-                <li>
-                    <a href="">Frutos do Mar</a>
-                </li>
-                <li>
-                    <a href="">Bolos e Tortas</a>
-                </li>
-                <li>
-                    <a href="">Sobremesas</a>
-                </li>
-                <li>
-                    <a href="">Aperitivos e Molhos</a>
+                
                 </li>
                 <li>
                     <a href="usuarios.html">Chefs</a>
@@ -76,7 +62,7 @@
                     <h2>Categoria: <span id="spanCategoria">dasdasdas</span></h2>
                     <h2>Dificuldade: <span id="spanDificuldade">sdasdasds</span></h2>
                     <h2>Tempo de Preparo: <span id="spanTempoPreparo">sdasdasds</span></h2>
-                    <h2>Utensilios: <span id="spanUtensilios">sdasdasds</span></h2>
+                    <h2>Cozinha: <span id="spanCozinha">sdasdasds</span></h2>
                 </div>
             </div>
             <div class="info-receita-preparo">
@@ -117,7 +103,48 @@
 
                     </ol>
                 </div>
+
+                  <div class="lista-preparo">
+                    <h1>Utensílios</h1>
+                    <ol class="preparo-lista">
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+                        <li>dasdasds</li>
+
+                    </ol>
+                </div>
             </div>
+        </div>
+
+        <div class="comentarios-container">
+            <h2>Comentários</h2>
+
+            <div class="form-comentario">
+                <textarea id="inputComentario" placeholder="Escreva seu comentário..."></textarea>
+
+                <label for="notaSelect">Nota (0 a 5):</label>
+                <select id="notaSelect">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <button id="btnEnviar">Enviar Comentário</button>
+            </div>
+
+            <ul id="listaComentarios"></ul>
         </div>
         
 
@@ -128,7 +155,37 @@
         </div>
     </footer>
     <script>
+        let comentarios = [];
 
+        function render() {
+            const lista = document.getElementById("listaComentarios");
+            lista.innerHTML = "";
+
+            comentarios.forEach((c) => {
+                const li = document.createElement("li");
+                li.className = "comentario-item";
+                li.innerHTML = `
+                    <p>${c.texto}</p>
+                    <p class="nota">Nota: ${c.nota}/5</p>
+                `;
+                lista.appendChild(li);
+            });
+        }
+
+        document.getElementById("btnEnviar").addEventListener("click", () => {
+            const texto = document.getElementById("inputComentario").value.trim();
+            const nota = document.getElementById("notaSelect").value;
+
+            if (texto.length < 2) {
+                alert("Escreva um comentário válido!");
+                return;
+            }
+
+            comentarios.push({ texto, nota });
+            render();
+
+            document.getElementById("inputComentario").value = "";
+        });
     </script>
 </body>
 </html>

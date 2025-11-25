@@ -9,25 +9,25 @@
 </head>
 <body>
   <header>
-    <div class="itens-header">
-      <div>
-        <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="" />
-        <div class="titulo"><p>QUASETUDO</p></div>
-        <div class="titulo2"><p>GOSTOSO</p></div>
-        <div class="faixa"></div>
-        <div class="bloco"></div>
-      </div>
-      <div class="barraPesquisa">
-        <input type="text" id="inp-procurar" placeholder="Procurar receita" />
-        <button id="btn-procurar">Procurar</button>
-      </div>
-      <div class="icon-usuario">
-        <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt="" /></a>
-      </div>
-    </div>
-  </header>
+       <div class="logo">
+            <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+       </div>
+       <div class="titulos">
+            <div  class="titulo">
+                <p>QUASETUDO</p>
+            </div>
+            <div class="titulo2">
+                <p>
+                    GOSTOSO
+                </p>
+            </div>
+       </div>
+       <div class="icone-usuario">
+           <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
+       </div>
+   </header>
 
-  <main>
+ <!--  <main>
     <div class="nav">
       <ul>
         <li><a href="index.html">Todas as Receitas</a></li>
@@ -41,7 +41,7 @@
         <li><a href="index.html">Chefs</a></li>
       </ul>
     </div>
-
+    
     <section class="receitas-topo">
       <h2>Receitas</h2>
       <p class="receitas-desc">
@@ -49,22 +49,22 @@
       </p>
     </section>
 
-    <section class="lista-receitas" id="lista-receitas">
+    <section class="lista-receitas" id="lista-receitas">-->
       <!-- Exemplo de card estático com botão Selecionar -->
 
   <main>
     <div class="nav">
       <ul>
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
 
                 <li>
-                    <a href="receitas.html">Todas as Receitas</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
 
                 <li>
-                    <a href="receita.html">Suas Receitas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
                
                 <li>
@@ -85,7 +85,7 @@
       </p>
 
       <div class="filtro-categoria">
-          <select onchange="filtrar()" name="" id="lista-filto">
+          <select name="" id="lista-filto">
   
           </select>
           <button onclick="addCategoria()">Adicionar Categoria</button>
@@ -198,6 +198,9 @@
     // comportamentos esperados:
     // - "Selecionar receita" adiciona a receita ao array salvo em localStorage em 'refeicaoItens' (sem duplicatas)
     // - "Finalizar refeição" navega para refeicao.html (mesmo domínio) onde o arquivo refeicao.html já lê 'refeicaoItens' do localStorage
+
+    var listafiltro = document.getElementById('lista-filto');
+
     (function(){
       
       function lerStorage(){
@@ -206,8 +209,8 @@
       }
 
 
-      const listaReceitas = document.getElementById('lista-receitas');
-
+      var listaReceitas = document.getElementById('lista-receitas');
+      listafiltro = document.getElementById('lista-filto');
 
     function carregar(){
        fetch("../Backend/buscar_receitas.php")
@@ -279,7 +282,7 @@
         })
         .catch(error => console.error("Erro:", error));
 
-        const listafiltro = document.getElementById('lista-filto');
+    
 
         fetch("../Backend/buscar_categorias.php")
             .then(response => response.json())
@@ -343,6 +346,113 @@
 
         }
 
+        listafiltro.addEventListener('change', filtrarCategoria);
+
+        function filtrarCategoria(){
+
+            listafiltro = document.getElementById('lista-filto');
+
+            listaReceitas.innerHTML = "";
+
+            const categoriaSelect = listafiltro.options[listafiltro.selectedIndex].text;
+
+            //const url = "../Backend/buscar_receitas.php?categoria="+ encodeURIComponent(categoriaSelect);
+
+            fetch("../Backend/buscar_receitas.php")
+            .then(response => response.json())
+            .then(recei => {
+                console.log(recei);
+                for (let i = 0; i < recei.receitas.length; i++){
+
+                  var categoriaTitulo;
+
+                  for (let j = 0; j < recei.CategoriasReceitas.length; j++){
+                     if(recei.receitas[i].idreceita == recei.CategoriasReceitas[j].receita_idreceita){
+                        categoriaTitulo = recei.CategoriasReceitas[j].categoria;
+                        break;
+                     }
+                   }
+
+                   if(categoriaTitulo == categoriaSelect){
+                      let article = document.createElement('article');
+                      article.className = "receita-card";
+                      article.dataset.id = recei.receitas[i].idreceita;
+                      article.dataset.titulo = recei.receitas[i].titulo;
+                      article.dataset.resumo = recei.receitas[i].descricao;
+                      let divImg = document.createElement('div');
+                      divImg.className = "card-img";
+                      let Img = document.createElement('img');
+                      Img.src = "IMG/Frango-assado-com-ervas.jpg";
+                      let divReceInfo = document.createElement('div');
+                      divReceInfo.className = "recei_info";
+                      let h3Titulo = document.createElement('h3');
+                      h3Titulo.className = "receita-titulo";
+                      let paraResumo = document.createElement('p');
+                      paraResumo.className = "receita-resumo";
+                      let divReceMeta = document.createElement('div');
+                      divReceMeta.className = "receita-meta";
+                      let spanTempo = document.createElement('span');
+                      spanTempo.textContent = "Tempo: 1h 15min";
+                      let spanDifi = document.createElement('span');
+                      spanDifi.textContent = "Dificuldade: Média";
+                      let divReceAct = document.createElement('div');
+                      divReceAct.className = "receita-actions";
+                      let buttonReceita = document.createElement('button');
+                      buttonReceita.className = "selecionar-receita ver-receita";
+                      buttonReceita.type = "button";
+                      let spanCategoria = document.createElement('span');
+                      spanCategoria.className = "tag";
+
+                      h3Titulo.textContent = recei.receitas[i].titulo;
+                      paraResumo.textContent = recei.receitas[i].descricao;
+                  
+                      spanCategoria.textContent = categoriaTitulo;
+                      buttonReceita.textContent = "Selecionar Receita";
+
+                      divReceAct.appendChild(buttonReceita);
+                      divReceAct.appendChild(spanCategoria);
+
+                      divReceMeta.appendChild(spanTempo);
+                      divReceMeta.appendChild(spanDifi);
+
+                      divReceInfo.appendChild(h3Titulo);
+                      divReceInfo.appendChild(paraResumo);
+                      divReceInfo.appendChild(divReceMeta);
+                      divReceInfo.appendChild(divReceAct);
+
+                      divImg.appendChild(Img);
+
+                      article.appendChild(divImg);
+                      article.appendChild(divReceInfo);
+
+                      listaReceitas.appendChild(article);
+                   }
+
+                 
+
+                }
+
+          })
+          .catch(error => console.error("Erro:", error));
+
+          listafiltro.innerHTML = "";
+
+          fetch("../Backend/buscar_categorias.php")
+              .then(response => response.json())
+              .then(dados => {
+
+                  for (let i = 0; i < dados.length; i++){
+                      var option = document.createElement('option');
+                      option.textContent = dados[i].categoria;
+                      listafiltro.appendChild(option);
+                  }
+
+          })
+          .catch(error => console.error("Erro:", error));
+
+        }
+        window.filtrarCategoria = filtrarCategoria;
+
     (function(){
       function lerStorage(){
         const raw = localStorage.getItem('refeicaoItens');
@@ -386,6 +496,7 @@
             btn.disabled = true;
             btn.style.opacity = '0.75';
           }
+        });
         });
       document.addEventListener('click', function(e){
         if (e.target.classList.contains('selecionar-receita')){
@@ -435,6 +546,7 @@
         });
       })();
     })();
+  })();
   </script>
 </body>
 </html>

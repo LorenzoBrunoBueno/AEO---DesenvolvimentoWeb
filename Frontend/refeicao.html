@@ -19,10 +19,6 @@
           <p> GOSTOSO </p>
         </div>
       </div>
-      <div class="barraPesquisa">
-        <input type="text" id="inp-procurar" placeholder="Procurar">
-        <button id="btn-procurar">Procurar</button>
-      </div>
       <div class="icon-usuario">
         <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
       </div>
@@ -33,41 +29,16 @@
     
         <div class="nav">
             <ul>
-                <li>
-                    <a href="">Todas as Receitas</a>
-                </li>
-                <li>
-                    <a href="">Carnes</a>
-                </li>
-                <li>
-                    <a href="">Massas</a>
-                </li>
-                <li>
-                    <a href="">Bebidas</a>
-                </li>
-                <li>
-                    <a href="">Frutos do Mar</a>
-                </li>
-                <li>
-                    <a href="">Bolos e Tortas</a>
-                </li>
-                <li>
-                    <a href="">Sobremesas</a>
-                </li>
-                <li>
-                    <a href="">Aperitivos e Molhos</a>
-                </li>
-                <li>
-                    <a href="">Chefs</a>
-                    <a href="index.html">Home</a>
+                 <li>
+                  <a href="index.php">Home</a>
                 </li>
 
                 <li>
-                    <a href="receitas.html">Todas as Receitas</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
 
                 <li>
-                    <a href="receita.html">Suas Receitas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
                
                 <li>
@@ -161,20 +132,10 @@
       carregarItens();
     });
 
-    finalizar.addEventListener('click', (e)=>{
+       finalizar.addEventListener('click', (e)=>{
       e.preventDefault();
-      const nome = document.getElementById('nome-ref').value || 'Minha refeição';
-      const dados = localStorage.getItem('refeicaoItens');
-      const itens = dados ? JSON.parse(dados) : [];
-      if(itens.length === 0) return;
-      const pedido = { nome, itens, criadoEm: new Date().toISOString() };
-      localStorage.setItem('ultimoPedido', JSON.stringify(pedido));
-      modal.classList.remove('ativo');
-      localStorage.removeItem('refeicaoItens');
-      carregarItens();
-      alert('Refeição finalizada: ' + nome);
       const nomeInput = document.getElementById('nome-ref');
-      const nome = nomeInput.value.trim();
+      const nome = nomeInput.value.trim() || 'Minha refeição';
       const dados = localStorage.getItem('refeicaoItens');
       const itens = dados ? JSON.parse(dados) : [];
 
@@ -197,7 +158,6 @@
       })
       .catch(e => console.error('Erro:', e));
     });
-
     window.addEventListener('storage', function(e){
       if(e.key === 'refeicaoItens') carregarItens();
     });

@@ -36,11 +36,10 @@ header{
     /*Titulos*/
 
 .titulos{
-    margin-right: 40%;
+    position: absolute;
     text-align: center;
     width: 10%;
-    margin-top: 10%;
-    
+    margin-top: 15%;
 }
 
 .titulo p{

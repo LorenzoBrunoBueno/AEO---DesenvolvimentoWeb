@@ -30,15 +30,15 @@
         <div class="nav">
             <ul>
                  <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
 
                 <li>
-                    <a href="receitas.html">Todas as Receitas</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
 
                 <li>
-                    <a href="receita.html">Suas Receitas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
                
                 <li>
@@ -52,17 +52,85 @@
             </ul>
         </div>
 
+
+            <div class="cadastrarReceita">
+                <h3>Cadastrar Receita</h2>
+            </div>
         <div class="container">
-            <form action="">
-                <label for="">Título</label>
-                <input type="text" id="inpTitulo">
+           <form id="formReceita">
+                <div class="divBackground" >
+                    <label>Título da Receita:</label>
+                    <input type="text" id="titulo" required>
+                </div>
+                <div class="divBackground">
+                    <div>
+                        <label>Descrição da Receita:</label>
+                    </div>
+                    <div>
+                        <textarea name="" id="descricao"></textarea>
+                    </div>
+                </div>
+                <div class="divBackground">
+                    <label for="">Dificuldade</label>
+                    <select name="" id="seleDificuldade"></select>
+                </div>
+                <div class="divBackground">
+                    <label for="">Custo</label>
+                    <select name="" id="seleCusto"></select>
+                </div>
+                <div class="divBackground">
+                    <label for="">Categoria</label>
+                    <select name="" id="seleCategoria"></select>
+                </div>
+                <div class="divBackground">
+                    <label for="">Cozinha</label>
+                    <select name="" id="seleCozinha"></select>
+                </div>
 
-                <label for="">Descrição</label>
-                <textarea name="" id="txtareaDescri">
-                </textarea>
+                <!-- INGREDIENTES -->
+                <div class="listas">
+                   
+                    <div class="listaUl">
+                        <h3>Ingredientes</h3>
 
-                <label for="">Imagem</label>
-                <input type="image" name="" id="">
+                    </div>
+                    <ul id="listaIngredientes"></ul>
+
+                <!-- UTENSÍLIOS -->
+
+                    
+                    <div class="listaUl">
+                        <h3>Utensílios</h3>
+                    </div>
+                    <ul id="listaUtensilios"></ul>
+
+                <!-- PASSOS DO PREPARO -->
+
+                    
+                    <div class="listaUl">
+                        <h3>Preparo</h3>
+                   </div>
+                    <ul id="listaPassos"></ul>
+                </div>
+                <div class="botoes">
+                    <div>
+                        <button type="button" onclick="addIngrediente()">Adicionar Ingrediente</button>
+                        <input type="text" id="novoIngrediente" placeholder="Novo ingrediente">
+                    </div>
+                    <div>
+                        <button type="button" onclick="addUtensilio()">Adicionar Utensílio</button>
+                        <input type="text" id="novoUtensilio" placeholder="Novo utensílio">
+                    </div>
+                    <div>
+                        <button type="button" onclick="addPasso()">Adicionar Passo</button>
+                        <input type="text" id="novoPasso" placeholder="Novo passo">
+                    </div>
+                </div>
+                <br><br>
+
+                
+                <button class="cadastrar" type="submit">Cadastrar</button>
+
             </form>
         </div>
         
@@ -73,5 +141,161 @@
             Copyright
         </div>
     </footer>
+
+    <script>
+
+        var listaCategoria = document.getElementById('seleCategoria');
+        var listaCusto = document.getElementById('seleCusto');
+        var listaDificuldade = document.getElementById('seleDificuldade');
+        var listaCozinha = document.getElementById('seleCozinha');
+
+
+
+
+        function carregarCategoria(){
+            fetch("../Backend/buscar_categorias.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    let option = document.createElement('option');
+                    option.textContent = dados[i].categoria;
+                    listaCategoria.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        }
+
+        carregarCategoria();
+
+        function carregarCozinha(){
+            fetch("../Backend/buscar_cozinha.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    let option = document.createElement('option');
+                    option.textContent = dados[i].cozinha;
+                    listaCozinha.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        }
+
+        carregarCozinha();
+
+        
+        function carregarCusto(){
+            fetch("../Backend/buscar_custos.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    let option = document.createElement('option');
+                    option.textContent = dados[i].custo;
+                    listaCusto.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        }
+
+        carregarCusto();
+
+        
+        function carregarDificuldade(){
+            fetch("../Backend/buscar_dificuldades.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    let option = document.createElement('option');
+                    option.textContent = dados[i].dificuldade;
+                    listaDificuldade.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        }
+
+          
+        carregarDificuldade();
+
+
+
+        function addItem(inputId, ulId) {
+            const texto = document.getElementById(inputId).value.trim();
+            if (texto === "") return;
+
+            const li = document.createElement("li");
+            li.textContent = texto;
+
+            // botão remover
+            const btn = document.createElement("button");
+            btn.textContent = "X";
+            btn.style.marginLeft = "5px";
+            btn.onclick = () => li.remove();
+
+            li.appendChild(btn);
+            document.getElementById(ulId).appendChild(li);
+
+            document.getElementById(inputId).value = "";
+        }
+
+        function addIngrediente() { addItem("novoIngrediente", "listaIngredientes"); }
+        function addUtensilio()   { addItem("novoUtensilio", "listaUtensilios"); }
+        function addPasso()       { addItem("novoPasso", "listaPassos"); }
+
+        document.getElementById("formReceita").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            function ulToText(ulId) {
+                return [...document.querySelectorAll(`#${ulId} li`)]
+                    .map(li => li.firstChild.textContent) // pega só o texto, sem o botão
+                    .join("\n");
+            }
+
+            let seleCategoria = document.getElementById('seleCategoria');
+            let seleDificuldade = document.getElementById('seleDificuldade');
+            let seleCusto = document.getElementById('seleCusto');
+            let seleCozinha = document.getElementById('seleCozinha');
+
+            const categoriaSelect = seleCategoria.options[seleCategoria.selectedIndex].text;
+            const difiSelect = seleDificuldade.options[seleDificuldade.selectedIndex].text;
+            const custoSelect = seleCusto.options[seleCusto.selectedIndex].text;
+            const coziSelect = seleCozinha.options[seleCozinha.selectedIndex].text;
+            
+
+            const dados = {
+                titulo: document.getElementById("titulo").value,
+                descricao: document.getElementById('descricao').value,
+                custo: custoSelect,
+                categoria: categoriaSelect,
+                dificuldade: difiSelect,
+                cozinha: coziSelect,
+                ingredientes: ulToText("listaIngredientes"),
+                utensilios: ulToText("listaUtensilios"),
+                preparo: ulToText("listaPassos")
+            };
+
+            console.log("Dados enviados:", dados);
+
+            // Enviar para o PHP usando AJAX
+            fetch("../Backend/cadastrar_receita.php", {
+                method: "POST",
+                body: JSON.stringify(dados),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            //window.location.href = "../Frontend/listarReceitas.html";
+        });
+    </script>
+
 </body>
 </html>

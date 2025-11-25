@@ -1,3 +1,12 @@
+
+<?php
+session_start();
+
+if (!isset($_SESSION["logado"])) {
+    header("Location: login.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,47 +29,36 @@
                 <div class="faixa"></div>
                 <div class="bloco"></div>
             </div>
-            <div class="barraPesquisa">
-                <input type="text" id="inp-procurar">
-                <button id="btn-procurar">Procurar</button>
-           </div>
            <div class="icon-usuario">
                  <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
            </div>
         </div>
     </header>
     <main>
-        <div class="nav">
+         <div class="nav">
             <ul>
-                <li>
-                    <a href="index.html">Todas as Receitas</a>
+                  <li>
+                    <a href="index.html">Home</a>
                 </li>
+
                 <li>
-                    <a href="">Carnes</a>
+                    <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
+
                 <li>
-                    <a href="">Massas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
+               
                 <li>
-                    <a href="">Bebidas</a>
+                    <a href="refeicao.html">Refeição</a>
                 </li>
-                <li>
-                    <a href="">Frutos do Mar</a>
-                </li>
-                <li>
-                    <a href="">Bolos e Tortas</a>
-                </li>
-                <li>
-                    <a href="">Sobremesas</a>
-                </li>
-                <li>
-                    <a href="">Aperitivos e Molhos</a>
+                
                 </li>
                 <li>
                     <a href="usuarios.html">Chefs</a>
                 </li>
             </ul>
-        </div>
+    </div>
 
         <div class="container">
             <a href="receita.html">

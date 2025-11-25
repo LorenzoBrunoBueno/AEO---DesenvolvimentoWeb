@@ -1,5 +1,10 @@
 INSTRUÇÕES DE EXECUÇÃO (BACKEND - PHP + MYSQL)
 
+Nomes da Equipe:  Lorenzo Bruno Bueno
+                  Jean Padilha
+                  Luis Felipe Fragata
+                  Lucas Rumph
+
 1) LOCAL DO PROJETO:
    Coloque as pastas em:
    C:\xampp\htdocs\quasetudogostoso\

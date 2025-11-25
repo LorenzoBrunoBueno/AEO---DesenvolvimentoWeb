@@ -59,6 +59,24 @@
                 </li>
                 <li>
                     <a href="">Chefs</a>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="receitas.html">Todas as Receitas</a>
+                </li>
+
+                <li>
+                    <a href="receita.html">Suas Receitas</a>
+                </li>
+               
+                <li>
+                    <a href="refeicao.html">Refeição</a>
+                </li>
+                
+                </li>
+                <li>
+                    <a href="usuarios.html">Chefs</a>
                 </li>
             </ul>
         </div>
@@ -155,6 +173,29 @@
       localStorage.removeItem('refeicaoItens');
       carregarItens();
       alert('Refeição finalizada: ' + nome);
+      const nomeInput = document.getElementById('nome-ref');
+      const nome = nomeInput.value.trim();
+      const dados = localStorage.getItem('refeicaoItens');
+      const itens = dados ? JSON.parse(dados) : [];
+
+      if(itens.length === 0) return;
+
+      const formData = new FormData();
+      formData.append('nome', nome);
+      formData.append('itens', JSON.stringify(itens)); // ← chave aqui!
+
+      fetch('../Backend/cadastrar_refeicao_receitas.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(r => r.text())
+      .then(msg => {
+        alert(msg);
+        modal.classList.remove('ativo');
+        localStorage.removeItem('refeicaoItens');
+        carregarItens();
+      })
+      .catch(e => console.error('Erro:', e));
     });
 
     window.addEventListener('storage', function(e){

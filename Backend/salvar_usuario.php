@@ -12,6 +12,21 @@ $cep = $_POST['cep'] ?? null;
 $gen = $_POST['genero'] ?? null;
 $senha = $_POST['senha'] ?? '';
 
+switch ($gen){
+    case "Masc":
+        $gen = 0;
+    break;
+    case "Fem":
+        $gen = 1;
+    break;
+    case "Out":
+        $gen = 2;
+    break;
+    case "Pref":
+        $gen = 3;
+    break;
+}
+
 if ($nome == '' || $email == '' || $senha == '') {
     exit("Campos obrigatórios faltando.");
 }

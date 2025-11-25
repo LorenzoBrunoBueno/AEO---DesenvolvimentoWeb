@@ -51,6 +51,49 @@
 
     <section class="lista-receitas" id="lista-receitas">
       <!-- Exemplo de card estático com botão Selecionar -->
+
+  <main>
+    <div class="nav">
+      <ul>
+                  <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="receitas.html">Todas as Receitas</a>
+                </li>
+
+                <li>
+                    <a href="receita.html">Suas Receitas</a>
+                </li>
+               
+                <li>
+                    <a href="refeicao.html">Refeição</a>
+                </li>
+                
+                </li>
+                <li>
+                    <a href="usuarios.html">Chefs</a>
+                </li>
+            </ul>
+    </div>
+
+    <section class="receitas-topo">
+      <h2>Receitas</h2>
+      <p class="receitas-desc">
+        Explore nossas receitas: fotos, tempo de preparo, nível de dificuldade e uma breve descrição.
+      </p>
+
+      <div class="filtro-categoria">
+          <select onchange="filtrar()" name="" id="lista-filto">
+  
+          </select>
+          <button onclick="addCategoria()">Adicionar Categoria</button>
+        </div>
+    </section>
+
+    <section class="lista-receitas" id="lista-receitas">
+      <!-- Exemplo de card estático com botão Selecionar
       <article class="receita-card" data-id="1" data-titulo="Frango Assado com Ervas" data-resumo="Frango suculento temperado com ervas frescas e assado até dourar.">
         <div class="card-img" id="card-img">
           <img src="IMG/Frango-assado-com-ervas.jpg" alt="Frango Assado com Ervas" />
@@ -132,6 +175,14 @@
         </div>
       </article>
 
+          </div>
+          <div class="receita-actions">
+            <button class="selecionar-receita ver-receita" type="button">Selecionar receita</button>
+            <span class="tag">Carnes</span>
+          </div>
+        </div>
+      </article>
+       -->
     </section>
 
     <div class="finalizar-bloco" style="margin:30px 100px 60px 100px;display:flex;justify-content:flex-end;">
@@ -154,6 +205,153 @@
         try{ return raw ? JSON.parse(raw) : []; } catch { return []; }
       }
 
+
+      const listaReceitas = document.getElementById('lista-receitas');
+
+
+    function carregar(){
+       fetch("../Backend/buscar_receitas.php")
+            .then(response => response.json())
+            .then(recei => {
+                console.log(recei);
+                for (let i = 0; i < recei.receitas.length; i++){
+
+                   let article = document.createElement('article');
+                   article.className = "receita-card";
+                   article.dataset.id = recei.receitas[i].idreceita;
+                   article.dataset.titulo = recei.receitas[i].titulo;
+                   article.dataset.resumo = recei.receitas[i].descricao;
+                   let divImg = document.createElement('div');
+                   divImg.className = "card-img";
+                   let Img = document.createElement('img');
+                   Img.src = "IMG/Frango-assado-com-ervas.jpg";
+                   let divReceInfo = document.createElement('div');
+                   divReceInfo.className = "recei_info";
+                   let h3Titulo = document.createElement('h3');
+                   h3Titulo.className = "receita-titulo";
+                   let paraResumo = document.createElement('p');
+                   paraResumo.className = "receita-resumo";
+                   let divReceMeta = document.createElement('div');
+                   divReceMeta.className = "receita-meta";
+                   let spanTempo = document.createElement('span');
+                   spanTempo.textContent = "Tempo: 1h 15min";
+                   let spanDifi = document.createElement('span');
+                   spanDifi.textContent = "Dificuldade: Média";
+                   let divReceAct = document.createElement('div');
+                   divReceAct.className = "receita-actions";
+                   let buttonReceita = document.createElement('button');
+                   buttonReceita.className = "selecionar-receita ver-receita";
+                   buttonReceita.type = "button";
+                   let spanCategoria = document.createElement('span');
+                   spanCategoria.className = "tag";
+
+                   h3Titulo.textContent = recei.receitas[i].titulo;
+                   paraResumo.textContent = recei.receitas[i].descricao;
+                   for (let j = 0; j < recei.CategoriasReceitas.length; j++){
+                     if(recei.receitas[i].idreceita == recei.CategoriasReceitas[j].receita_idreceita){
+                        spanCategoria.textContent = recei.CategoriasReceitas[j].categoria;
+                        break;
+                     }
+                   }
+                   //spanCategoria.textContent = "Bolos"
+                   buttonReceita.textContent = "Selecionar Receita";
+
+                   divReceAct.appendChild(buttonReceita);
+                   divReceAct.appendChild(spanCategoria);
+
+                   divReceMeta.appendChild(spanTempo);
+                   divReceMeta.appendChild(spanDifi);
+
+                   divReceInfo.appendChild(h3Titulo);
+                   divReceInfo.appendChild(paraResumo);
+                   divReceInfo.appendChild(divReceMeta);
+                   divReceInfo.appendChild(divReceAct);
+
+                   divImg.appendChild(Img);
+
+                   article.appendChild(divImg);
+                   article.appendChild(divReceInfo);
+
+                   listaReceitas.appendChild(article);
+
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+
+        const listafiltro = document.getElementById('lista-filto');
+
+        fetch("../Backend/buscar_categorias.php")
+            .then(response => response.json())
+            .then(dados => {
+
+                for (let i = 0; i < dados.length; i++){
+                    var option = document.createElement('option');
+                    option.textContent = dados[i].categoria;
+                    listafiltro.appendChild(option);
+                }
+
+        })
+        .catch(error => console.error("Erro:", error));
+    }
+     
+    carregar();
+
+        
+        function addCategoria(){
+
+            var novaCategoria = prompt("Insira o nome da nova categoria: ");
+
+            if(!novaCategoria){
+                console.log("Insira uma categoria corretamente");
+                return;
+            }else{
+
+                const formData = new FormData();
+                formData.append("categoria", novaCategoria);
+                formData.append("ativo", 1);
+
+
+                fetch("../Backend/cadastrar_categoria.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => res.text())
+                .then(res => {
+                    alert(res); // mostra resposta do PHP
+                })
+                .catch(err => console.error("Erro:", err));
+            }
+
+           while (listafiltro.options.length > 0){
+            listafiltro.remove(0)
+           }
+         
+
+             fetch("../Backend/buscar_categorias.php")
+                .then(response => response.json())
+                .then(dados => {
+
+                    for (let i = 0; i < dados.length; i++){
+                        var option = document.createElement('option');
+                        option.textContent = dados[i].categoria;
+                        listafiltro.appendChild(option);
+                    }
+
+            })
+            .catch(error => console.error("Erro:", error));
+
+        }
+
+    (function(){
+      function lerStorage(){
+        const raw = localStorage.getItem('refeicaoItens');
+        try{ 
+          return raw ? JSON.parse(raw) : []; 
+        }catch{
+          return []; 
+        }
+      }
       function gravarStorage(arr){
         localStorage.setItem('refeicaoItens', JSON.stringify(arr));
       }
@@ -189,6 +387,27 @@
             btn.style.opacity = '0.75';
           }
         });
+      document.addEventListener('click', function(e){
+        if (e.target.classList.contains('selecionar-receita')){
+          const btn = e.target;
+          const card = btn.closest('.receita-card');
+          if(!card) return;
+
+          const item  = criarItemDoCard(card);
+          const itens = lerStorage();
+
+          if(!itens.some(i => i.id === item.id)){
+            itens.push(item);
+            gravarStorage(itens);
+            btn.textContent =   "Selecionado";
+          }else{
+            btn.textContent = "Já Selecionado";
+          }
+
+          btn.disabled = true;
+          btn.style.opacity = "0.75";
+
+        }
       });
 
       document.getElementById('finalizar-refeicao').addEventListener('click', function(){

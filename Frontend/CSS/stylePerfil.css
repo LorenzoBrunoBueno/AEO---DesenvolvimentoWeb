@@ -15,6 +15,10 @@ body {
     margin: 30px 60px;
     background-color: beige;
     padding: 18px;
+main {
+    transform: translate(480px, 130px);
+    width: 900px;
+    background-color: rgb(248, 248, 184);
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
@@ -25,6 +29,13 @@ body {
     margin: 30px 60px;
     background-color: beige;
     padding: 25px;
+.titu {
+    transform: translate(35px, 25px);
+    padding: 5px;
+    padding-left: 20px;
+    background-color: white;
+    width: 795px;
+    margin-left: 15px;
     border: 1px solid black;
     border-radius: 10px;
 }

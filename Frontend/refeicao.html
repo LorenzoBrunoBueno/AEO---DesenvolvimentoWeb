@@ -139,7 +139,7 @@
     finalizar.addEventListener('click', (e)=>{
       e.preventDefault();
       const nomeInput = document.getElementById('nome-ref');
-      const nome = nomeInput.value.trim() || 'Minha refeição';
+      const nome = nomeInput.value.trim();
       const dados = localStorage.getItem('refeicaoItens');
       const itens = dados ? JSON.parse(dados) : [];
 

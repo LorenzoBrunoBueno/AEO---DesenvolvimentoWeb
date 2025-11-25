@@ -1,112 +1,108 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(69, 69, 69);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-body{
-    background-color: aliceblue;
-    overflow-x: hidden;
-}
-header{
-    height: 150px;
-    width: 100%;
-    background-color: rgb(248, 248, 184);
-}
-.itens-header{
-    display: flex;
-}
-.itens-header img{
-    width: 130px;
-    height: 100px;
-    padding: 20px;
-    padding-left: 150px;
-}
-.titulo{
-    margin-left: 270px;
-    position: relative;
-    bottom: 95px;
-    left: 50px;
-}
-.titulo2{
-    margin-left: 270px;
-    position: relative;
-    bottom: 100px;
-    left: 60px;
-}
-.titulo p{
-    color: aliceblue;
-    text-shadow: 1px 1px black;
-    font-size: large;
-}
-.titulo2 p{
-    font-size: large;
-    color: rgb(255, 173, 101);
-    text-shadow: 1px 1px rgb(0, 0, 0);
+/* styleLogin.css — bem simples */
+
+/* Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-main{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  background: #f0f8ff;
 }
-.caixa-login{
-    background-color: beige;
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px rgb(153, 153, 153);
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    width: 400px;
-    padding: 30px;
-    text-align: center;
+
+/* Header */
+.site-header {
+  background: beige;
+  border-bottom: 1px solid #000;
+  padding: 12px 16px;
 }
-.caixa-login h2{
-    margin-bottom: 20px;
+
+.itens-header {
+  display: flex;
+  align-items: center;
 }
-.caixa-login form{
-    display: grid;
-    gap: 15px;
+
+.logo {
+  width: 90px;
+  height: auto;
+  border: 2px solid #000;
+  padding: 4px;
+  background: #fff;
 }
-input{
-    width: 100%;
-    height: 35px;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding-left: 10px;
-    background-color: aliceblue;
+
+/* Layout principal */
+main {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
-input:focus{
-    outline: none;
-    border: 2px solid rgb(255, 173, 101);
+
+/* Caixa de login */
+.caixa-login {
+  background: beige;
+  border: 1px solid #000;
+  border-radius: 8px;
+  max-width: 420px;
+  width: 100%;
+  padding: 16px;
 }
-button{
-    width: 100%;
-    height: 40px;
-    background-color: rgb(255, 173, 101);
-    border: 1px solid black;
-    border-radius: 8px;
-    font-weight: bold;
+
+.caixa-login h1 {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 20px;
 }
-button:hover{
-    background-color: red;
-    color: aliceblue;
-    transition: 0.3s;
+
+/* Campos */
+.campo { margin-bottom: 10px; }
+
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
 }
-.cadastro-link{
-    margin-top: 15px;
+
+.campo input {
+  width: 100%;
+  height: 38px;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #fff;
 }
-.cadastro-link a{
-    color: red;
+
+/* Mensagens (SE ALGUEM USAR NO JAVASCRIPT) */
+.mensagem-erro {
+  display: block;
+  min-height: 16px;
+  margin-top: 6px;
+  color: #a22;
+  font-size: 14px;
 }
-footer{
-    width: 100%;
-    height: 120px;
-    background-color: rgb(39, 34, 34);
-    color: aliceblue;
-    text-align: center;
-    padding-top: 45px;
-    font-size: 14px;
+
+/* Botão */
+#btnEntrar {
+  width: 100%;
+  height: 42px;
+  margin-top: 8px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  background: #ffad65;
+  font-weight: bold;
+  cursor: pointer;
 }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 12px 8px;
+  background: #272222;
+  color: #fff;
+  margin-top: 18px;
+}
+

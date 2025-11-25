@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil do Usuário</title>
+
+    <!-- CSS geral do site -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- CSS específico da página de perfil -->
     <link rel="stylesheet" href="CSS/stylePerfil.css">
 </head>
 <body>
+
+    <!-- Cabeçalho do site (banner + logo + barra de pesquisa + ícone do usuário) -->
+    <header>
+        <div class="itens-header">
+          
+          <div>
+            <!-- Logo do site -->
+            <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+
+            <!-- Título dividido em duas partes só para estilizar separado -->
+            <div class="titulo"><p>QUASETUDO</p></div>
+            <div class="titulo2"><p> GOSTOSO </p></div>
+
+            <!-- Elementos decorativos da header -->
+            <div class="faixa"></div>
+            <div class="bloco"></div>
+          </div>
+
+          <!-- Barra de pesquisa (ainda sem funcionalidade JS) -->
+          <div class="barraPesquisa">
+            <input type="text" id="inp-procurar">
+            <button id="btn-procurar">Procurar</button>
+          </div>
+
+          <!-- Ícone que leva para a página de perfil -->
+          <div class="icon-usuario">
+            <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
+          </div>
+
+        </div>
+    </header>
     <img id="ket" src="IMG/ket.png" style="position: absolute;" alt="">
     <img id="must" src="IMG/must.png" style="position: absolute;" alt="">
 
@@ -22,43 +58,47 @@
 
 
     <main>
-        <img id="pao" style="position: fixed;" src="IMG/2.png" alt="">
-        <div class="titu">
-            <h2>PERFIL DO USUÁRIO</h2>
+
+        <!-- Menu de navegação principal (mantido igual em todas as páginas) -->
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Todas as Receitas</a></li>
+                <li><a href="index.html">Carnes</a></li>
+                <li><a href="index.html">Massas</a></li>
+                <li><a href="index.html">Bebidas</a></li>
+                <li><a href="index.html">Frutos do Mar</a></li>
+                <li><a href="index.html">Bolos e Tortas</a></li>
+                <li><a href="index.html">Sobremesas</a></li>
+                <li><a href="index.html">Aperitivos e Molhos</a></li>
+                <li><a href="index.html">Chefs</a></li>
+            </ul>
         </div>
 
-        <div class="divPerfil">
-            <div class="fotoPerfil">
-                <img src="IMG/molodoy.avif" alt="Foto de Perfil">
-                <p id="nomeUsuario">Usuário Exemplo</p>
+        <!-- Título da página -->
+        <section class="perfil-topo">
+            <h2>Perfil do Usuário</h2>
+        </section>
+
+        <!-- Área principal onde ficam as informações e botões -->
+        <section class="perfil-conteudo">
+
+            <!-- Informações básicas do usuário (simulação simples, sem backend) -->
+            <div class="info">
+                <p><strong>Nome:</strong> Luis Felipe</p>
+                <p><strong>Email:</strong> usuario@email.com</p>
+                <p><strong>Data de Nascimento:</strong> 10/10/2000</p>
+                <p><strong>CEP:</strong> 89200-000</p>
+                <p><strong>Gênero:</strong> Masculino</p>
+                <p><strong>UUID:</strong> 123e4567-e89b-12d3-a456-426614174000</p>
             </div>
 
-            <div class="infoPerfil">
-                <div>
-                    <label>Email:</label>
-                    <p>usuario@email.com</p>
-                </div>
-                <div>
-                    <label>Data de Nascimento:</label>
-                    <p>10/10/2000</p>
-                </div>
-                <div>
-                    <label>CEP:</label>
-                    <p>89200-000</p>
-                </div>
-                <div>
-                    <label>Gênero:</label>
-                    <p>Masculino</p>
-                </div>
-                <div>
-                    <label>UUID:</label>
-                    <p>123e4567-e89b-12d3-a456-426614174000</p>
-                </div>
-            </div>
-
-            <div class="botoesPerfil">
+            <!-- Botões de ação do perfil -->
+            <div class="botoes">
+                <!-- Vai para a página de edição (apenas simulação) -->
                 <a href="Cadastro.html">Editar Perfil</a>
-                <a href="login.html" id="sair">Sair</a>
+
+                <!-- "Sair" leva de volta ao login -->
+                <a id="sair" href="login.html">Sair</a>
             </div>
         </div>
 
@@ -69,6 +109,13 @@
         
 
 
+        </section>
     </main>
+
+    <!-- Rodapé bem simples só para fechar a página -->
+    <footer>
+        <div>Copyright</div>
+    </footer>
+
 </body>
 </html>

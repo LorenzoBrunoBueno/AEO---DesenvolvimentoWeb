@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="CSS/styleLogin.css">
-</head>
-<body>
-    <header>
-        <div class="itens-header">
-            
-            <div>
-                <img  src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
-                <div  class="titulo">
-                    <p>QUASETUDO</p>
-                </div>
-                <div class="titulo2">
-                    <p>
-                        GOSTOSO
-                    </p>
-                </div>
-                <div class="faixa"></div>
-                <div class="bloco"></div>
-            </div>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Faz a tela corresponder à largura do dispositivo, essencial para responsividade em celulares -->
+
+    <title>Login - QuaseTudo Gostoso</title>
+
+    <link rel="stylesheet" href="CSS/styleLogin.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <!-- o CSS do header-->
+      <div class="itens-header">
+        <!-- Container para agrupar itens do cabeçalho e permitir posicionamento via CSS -->
+        <img
+          src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800"
+          alt="Logo QuaseTudo Gostoso"
+          class="logo"
+        />
+      </div>
     </header>
 
     <main>
-        <div class="caixa-login">
-            <h2>Entrar</h2>
-            <form>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="Digite seu e-mail" required>
+      <!-- Área principal do conteúdo; deve conter o que é mais importante na página -->
+      <section class="caixa-login">
+        <!-- Caixa que agrupa visualmente o formulário de login -->
+        <h1>Entrar</h1>
+        <!-- Título principal da página/área -->
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Digite sua senha" required>
+        <form id="loginForm">
+          <!-- Formulário de login:
+             - id permite que o JavaScript(caso quem for fazer o javascript precisar, se nao altera isso) selecione e controle o comportamento do form -->
+          <div class="campo">
+            <!-- Agrupa label, input e mensagem para estilo e organização -->
+            <label for="email">E-mail</label>
+            <!-- Label ligado ao input pelo atributo for="email" -->
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@exemplo.com"
+              required
+            />
+            <!-- APRENDI ESSAS FUNÇÕES E APRESENTO PARA O PETRI-->
+            <small id="emailHelp" class="mensagem-erro"></small>
+          </div>
 
-                <button type="submit">Entrar</button>
-            </form>
-            <p class="cadastro-link">Não tem conta? <a href="Cadastro.html">Cadastre-se</a></p>
-        </div>
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Digite sua senha"
+              required
+            />
+            <!-- MESMA COISA COM A SENHA, MINHA PARTE(LUIS)-->
+          </div>
+
+          <button type="submit" id="btnEntrar">Entrar</button>
+          <!--
+          Botão que submete o formulário.
+          - TEM QUE FAZER UM JAVASCRIPT AQUI NO BOTÃO-->
+        </form>
+
+        <p class="cadastro-link">
+          Não tem conta? <a href="Cadastro.html">Cadastre-se</a>
+          <!-- Link para a página de cadastro (caso o usuário queira) -->
+        </p>
+      </section>
     </main>
 
-    <footer>
-        Copyright
+    <footer class="site-footer">
+      <div>Copyright</div>
     </footer>
-</body>
+  </body>
 </html>

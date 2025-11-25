@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuários</title>
-  <link rel="stylesheet" href="CSS/style.css">
-  <link rel="stylesheet" href="CSS/styleUsuarios.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+
+    <!-- CSS geral do site -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- CSS específico da página de usuários -->
+    <link rel="stylesheet" href="CSS/styleUsuarios.css">
 </head>
 <body>
+
+    <header>
+        <div class="itens-header">
+
+            <!-- Logo e título do site (parte padrão do projeto) -->
+            <div>
+                <img src="IMG/chefs-delight-restaurant-logo_11024933.png!sw800" alt="">
+                <div class="titulo"><p>QUASETUDO</p></div>
+                <div class="titulo2"><p> GOSTOSO </p></div>
+                <div class="faixa"></div>
+                <div class="bloco"></div>
+            </div>
+
+            <!-- Barra de pesquisa (aqui só visual mesmo) -->
+            <div class="barraPesquisa">
+                <input type="text" id="inp-procurar" placeholder="Procurar usuário">
+                <button id="btn-procurar">Procurar</button>
+            </div>
+
+            <!-- Ícone do usuário -->
+            <div class="icon-usuario">
+                <a href="perfil.html"><img src="IMG/4092564-about-mobile-ui-profile-ui-user-website_114033.png" alt=""></a>
+            </div>
   <header>
     <div class="itens-header">
       <div>
@@ -79,23 +106,93 @@
           <p class="email">Jean@example.com</p>
           <p class="detalhes">Cidade: Joinville;</p>
         </div>
-        <a class="btn-perfil" href="perfil.html">Ver perfil</a>
-      </div>
+    </header>
 
-      <div class="usuario-card">
-        <img src="IMG/molodoy.avif"Usuário 4">
-        <div class="usuario-info">
-          <h3>Lorenzo Bruno</h3>
-          <p class="email">Lorenzo@example.com</p>
-          <p class="detalhes">Cidade: Joinville;</p>
+    <main>
+
+        <!-- Menu de navegação principal que eu utilizei do index.html -->
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Todas as Receitas</a></li>
+                <li><a href="index.html">Carnes</a></li>
+                <li><a href="index.html">Massas</a></li>
+                <li><a href="index.html">Bebidas</a></li>
+                <li><a href="index.html">Frutos do Mar</a></li>
+                <li><a href="index.html">Bolos e Tortas</a></li>
+                <li><a href="index.html">Sobremesas</a></li>
+                <li><a href="index.html">Aperitivos e Molhos</a></li>
+                <li><a href="index.html">Chefs</a></li>
+            </ul>
         </div>
-        <a class="btn-perfil" href="perfil.html">Ver perfil</a>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div>Copyright</div>
-  </footer>
+        <!-- Título da página -->
+        <section class="usuarios-topo">
+            <h2>Lista de Usuários</h2>
+
+            <!-- Pequena descrição para contextualizar -->
+            <p class="usuarios-desc">
+                Aqui estão os usuários cadastrados no sistema, com informações simples como nome e e-mail.
+            </p>
+        </section>
+
+        <!-- Cards dos usuários (simula a tabela "Usuário") -->
+        <section class="usuarios-lista">
+
+            <!-- Card do usuário 1 -->
+            <div class="usuario-card">
+
+                <div class="usuario-info">
+                    <h3>Luis Felipe</h3>
+                    <p class="email">luis@example.com</p>
+                    <p class="detalhes">Cidade: Joinville</p>
+                </div>
+
+                <a class="btn-perfil" href="perfil.html">Ver perfil</a>
+            </div>
+
+            <!-- Card do usuário 2 -->
+            <div class="usuario-card">
+
+                <div class="usuario-info">
+                    <h3>Lucas Rumph</h3>
+                    <p class="email">Lucas@example.com</p>
+                    <p class="detalhes">Cidade: Joinville</p>
+                </div>
+
+                <a class="btn-perfil" href="perfil.html">Ver perfil</a>
+            </div>
+
+            <!-- Card do usuário 3 -->
+            <div class="usuario-card">
+
+                <div class="usuario-info">
+                    <h3>Jean Padilha</h3>
+                    <p class="email">Jean@example.com</p>
+                    <p class="detalhes">Cidade: Joinville</p>
+                </div>
+
+                <a class="btn-perfil" href="perfil.html">Ver perfil</a>
+            </div>
+
+            <!-- Card do usuário 4 -->
+            <div class="usuario-card">
+
+                <div class="usuario-info">
+                    <h3>Lorenzo Bruno</h3>
+                    <p class="email">Lorenzo@example.com</p>
+                    <p class="detalhes">Cidade: Joinville</p>
+                </div>
+
+                <a class="btn-perfil" href="perfil.html">Ver perfil</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div>Copyright</div>
+    </footer>
+
 </body>
 </html>

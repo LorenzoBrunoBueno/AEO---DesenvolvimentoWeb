@@ -30,6 +30,31 @@
   <main>
     <div class="nav">
       <ul>
+        <li><a href="index.html">Todas as Receitas</a></li>
+        <li><a href="index.html">Carnes</a></li>
+        <li><a href="index.html">Massas</a></li>
+        <li><a href="index.html">Bebidas</a></li>
+        <li><a href="index.html">Frutos do Mar</a></li>
+        <li><a href="index.html">Bolos e Tortas</a></li>
+        <li><a href="index.html">Sobremesas</a></li>
+        <li><a href="index.html">Aperitivos e Molhos</a></li>
+        <li><a href="index.html">Chefs</a></li>
+      </ul>
+    </div>
+
+    <section class="receitas-topo">
+      <h2>Receitas</h2>
+      <p class="receitas-desc">
+        Explore nossas receitas: fotos, tempo de preparo, nível de dificuldade e uma breve descrição.
+      </p>
+    </section>
+
+    <section class="lista-receitas" id="lista-receitas">
+      <!-- Exemplo de card estático com botão Selecionar -->
+
+  <main>
+    <div class="nav">
+      <ul>
                   <li>
                     <a href="index.html">Home</a>
                 </li>
@@ -89,6 +114,74 @@
           </div>
         </div>
       </article>
+
+      <article class="receita-card" data-id="2" data-titulo="Espaguete ao Molho Cremoso" data-resumo="Molho cremoso com queijo e toque de noz-moscada servido sobre massa al dente.">
+        <div class="card-img" id="card-img">
+          <img src="IMG/galo-imagem-receitas-macarrao-com-molho-branco-share.jpg" alt="Espaguete ao Molho Cremoso" />
+        </div>
+        <div class="recei_info">
+          <h3 class="receita-titulo">Espaguete ao Molho Cremoso</h3>
+          <p class="receita-resumo">
+            Molho cremoso com queijo e toque de noz-moscada servido sobre massa al dente.
+          </p>
+          <div class="receita-meta">
+            <span>Tempo: 30min</span>
+            <span>Dificuldade: Fácil</span>
+          </div>
+          <div class="receita-actions">
+            <button class="selecionar-receita ver-receita" type="button">Selecionar receita</button>
+            <span class="tag">Massas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="receita-card" data-id="3" data-titulo="Smoothie Tropical" data-resumo="Bebida refrescante com frutas tropicais, iogurte e um toque de mel.">
+        <div class="card-img" id="card-img">
+          <img src="IMG/d83bd8f3-smoothie-tropical_s_thumb.jpg" alt="Smoothie Tropical" />
+        </div>
+        <div class="recei_info">
+          <h3 class="receita-titulo">Smoothie Tropical</h3>
+          <p class="receita-resumo">
+            Bebida refrescante com frutas tropicais, iogurte e um toque de mel.
+          </p>
+          <div class="receita-meta">
+            <span>Tempo: 10min</span>
+            <span>Dificuldade: Muito fácil</span>
+          </div>
+          <div class="receita-actions">
+            <button class="selecionar-receita ver-receita" type="button">Selecionar receita</button>
+            <span class="tag">Bebidas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="receita-card" data-id="4" data-titulo="Torta de Limão" data-resumo="Torta cítrica com massa crocante e recheio cremoso finalizada com merengue.">
+        <div class="card-img" id="card-img">
+          <img src="IMG/1d22d96039f98608bc9338debb1b4579.jpg" alt="Torta de Limão" />
+        </div>
+        <div class="recei_info">
+          <h3 class="receita-titulo">Torta de Limão</h3>
+          <p class="receita-resumo">
+            Torta cítrica com massa crocante e recheio cremoso finalizada com merengue.
+          </p>
+          <div class="receita-meta">
+            <span>Tempo: 1h</span>
+            <span>Dificuldade: Média</span>
+          </div>
+          <div class="receita-actions">
+            <button class="selecionar-receita ver-receita" type="button">Selecionar receita</button>
+            <span class="tag">Bolos e Tortas</span>
+          </div>
+        </div>
+      </article>
+
+          </div>
+          <div class="receita-actions">
+            <button class="selecionar-receita ver-receita" type="button">Selecionar receita</button>
+            <span class="tag">Carnes</span>
+          </div>
+        </div>
+      </article>
        -->
     </section>
 
@@ -102,6 +195,16 @@
   </footer>
 
   <script>
+    // comportamentos esperados:
+    // - "Selecionar receita" adiciona a receita ao array salvo em localStorage em 'refeicaoItens' (sem duplicatas)
+    // - "Finalizar refeição" navega para refeicao.html (mesmo domínio) onde o arquivo refeicao.html já lê 'refeicaoItens' do localStorage
+    (function(){
+      
+      function lerStorage(){
+        const raw = localStorage.getItem('refeicaoItens');
+        try{ return raw ? JSON.parse(raw) : []; } catch { return []; }
+      }
+
 
       const listaReceitas = document.getElementById('lista-receitas');
 
@@ -261,6 +364,29 @@
         };
       }
 
+      document.querySelectorAll('.selecionar-receita').forEach(btn=>{
+        btn.addEventListener('click', function(){
+          const card = btn.closest('.receita-card');
+          if(!card) return;
+            const item = criarItemDoCard(card);
+            const itens = lerStorage();
+            const exista = itens.some(i => i.id === item.id);
+          if(!exista){
+            itens.push(item);
+            gravarStorage(itens);
+
+            // feedback rápido sem usar alert (para parecer natural)
+            btn.textContent = 'Selecionado';
+            btn.disabled = true;
+            btn.style.opacity = '0.75';
+          } else {
+
+            // caso já exista, apenas indicar visualmente
+            btn.textContent = 'Já selecionado';
+            btn.disabled = true;
+            btn.style.opacity = '0.75';
+          }
+        });
       document.addEventListener('click', function(e){
         if (e.target.classList.contains('selecionar-receita')){
           const btn = e.target;

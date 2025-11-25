@@ -103,7 +103,7 @@ body{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  margin: 30px 100px 60px 100px;
+  margin: 30px 100px 0 100px;
 }
 .receita-card{
   display: grid;
@@ -148,7 +148,7 @@ body{
   gap: 12px;
   align-items: center;
 }
-.ver-receita{
+.ver-receita, .selecionar-receita{
   text-decoration: none;
   background-color: rgb(69,69,69);
   color: white;
@@ -156,6 +156,10 @@ body{
   border-radius: 8px;
   border: 1px solid black;
   font-weight: bold;
+  cursor: pointer;
+}
+.selecionar-receita[disabled]{
+  cursor: default;
 }
 .tag{
   background-color: rgba(0,0,0,0.8);
@@ -163,6 +167,16 @@ body{
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: bold;
+}
+.finalizar-bloco .btn-perfil{
+  text-decoration: none;
+  background-color: rgb(69,69,69);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-weight: bold;
+  cursor: pointer;
 }
 @media (max-width: 1100px){
   .lista-receitas{

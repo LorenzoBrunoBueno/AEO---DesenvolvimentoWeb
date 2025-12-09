@@ -50,7 +50,7 @@ if (!isset($_SESSION["logado"])) {
 
                 
                 <li>
-                    <a href="listarReceitas.html">Receitas</a>
+                    <a href="listarReceitas.html">Suas Receitas</a>
                 </li>
                
                 <li>

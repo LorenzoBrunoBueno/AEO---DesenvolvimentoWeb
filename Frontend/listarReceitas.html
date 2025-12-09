@@ -27,7 +27,7 @@
        </div>
    </header>
 
-    <main>
+  <main>
   <div class="nav">
             <ul>
                   <li>
@@ -37,9 +37,11 @@
                 <li>
                     <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
-
                 <li>
-                    <a href="listarReceitas.html">Suas Receitas</a>
+                    <a href="cadastroReceita.html">Nova Receita</a>
+                </li>
+                <li>
+                    <a href="listarReceitas.html">Receitas</a>
                 </li>
                
                 <li>
@@ -49,6 +51,9 @@
                 </li>
                 <li>
                     <a href="usuarios.html">Chefs</a>
+                </li>
+                  <li>
+                    <a href="sobre.html">Sobre</a>
                 </li>
             </ul>
         </div>
@@ -118,7 +123,8 @@
                    let divImg = document.createElement('div')
                    divImg.className = "card-img";
                    let Img = document.createElement('img')
-                   Img.src = "IMG/Frango-assado-com-ervas.jpg";
+                   Img.src = "../Backend/buscar_imagem.php?id="+recei.receitas[i].idreceita;
+                   console.log(Img.src);
                    let divReceInfo = document.createElement('div')
                    divReceInfo.className = "recei_info";
                    let h3Titulo = document.createElement('h3')
@@ -174,7 +180,9 @@
         .catch(error => console.error("Erro:", error));
 
         listafiltro = document.getElementById('lista-filto');
-
+        let zero = document.createElement('option');
+        zero.textContent = "";
+        listafiltro.appendChild(zero);
         fetch("../Backend/buscar_categorias.php")
             .then(response => response.json())
             .then(dados => {
@@ -218,7 +226,9 @@
             listafiltro.remove(0)
            }
          
-
+             let zero = document.createElement('option');
+             zero.textContent = "";
+             listafiltro.appendChild(zero);
              fetch("../Backend/buscar_categorias.php")
                 .then(response => response.json())
                 .then(dados => {
@@ -261,8 +271,8 @@
                      }
                    }
 
-                   if(categoriaTitulo == categoriaSelect){
-                      let article = document.createElement('article');
+                   if(categoriaTitulo === categoriaSelect){
+                      /*let article = document.createElement('article');
                       article.className = "receita-card";
                       article.dataset.id = recei.receitas[i].idreceita;
                       article.dataset.titulo = recei.receitas[i].titulo;
@@ -313,7 +323,64 @@
                       article.appendChild(divImg);
                       article.appendChild(divReceInfo);
 
-                      listaReceitas.appendChild(article);
+                      listaReceitas.appendChild(article);*/
+
+                  let article = document.createElement('article')
+                   article.className = "receita-card";
+                   let divImg = document.createElement('div')
+                   divImg.className = "card-img";
+                   let Img = document.createElement('img')
+                   Img.src = "../Backend/buscar_imagem.php?id="+recei.receitas[i].idreceita;
+                   console.log(Img.src);
+                   let divReceInfo = document.createElement('div')
+                   divReceInfo.className = "recei_info";
+                   let h3Titulo = document.createElement('h3')
+                   h3Titulo.className = "receita-titulo";
+                   let paraResumo = document.createElement('p')
+                   paraResumo.className = "receita-resumo";
+                   let divReceMeta = document.createElement('div')
+                   divReceMeta.className = "receita-meta";
+                   let spanTempo = document.createElement('span')
+                   spanTempo.textContent = "Tempo: 1h 15min";
+                   let spanDifi = document.createElement('span')
+                   spanDifi.textContent = "Dificuldade: Média";
+                   let divReceAct = document.createElement('div')
+                   divReceAct.className = "receita-actions";
+                   let linkReceita = document.createElement('a')
+                   linkReceita.className = "ver-receita";
+                   let spanCategoria = document.createElement('span')
+                   spanCategoria.className = "tag";
+
+                   h3Titulo.textContent = recei.receitas[i].titulo;
+                   paraResumo.textContent = recei.receitas[i].descricao;
+                   for (let j = 0; j < recei.CategoriasReceitas.length; j++){
+                     if(recei.receitas[i].idreceita == recei.CategoriasReceitas[j].receita_idreceita){
+                        spanCategoria.textContent = recei.CategoriasReceitas[j].categoria;
+                        break;
+                     }
+                   }
+                   //spanCategoria.textContent = "Bolos"
+                   linkReceita.textContent = "ver receita";
+                   linkReceita.href = "../Frontend/receita.html";
+
+                   divReceAct.appendChild(linkReceita);
+                   divReceAct.appendChild(spanCategoria);
+
+                   divReceMeta.appendChild(spanTempo);
+                   divReceMeta.appendChild(spanDifi);
+
+                   divReceInfo.appendChild(h3Titulo);
+                   divReceInfo.appendChild(paraResumo);
+                   divReceInfo.appendChild(divReceMeta);
+                   divReceInfo.appendChild(divReceAct);
+
+                   divImg.appendChild(Img);
+
+                   article.appendChild(divImg);
+                   article.appendChild(divReceInfo);
+
+                   listaReceitas.appendChild(article);
+
                    }
 
                  
@@ -324,7 +391,9 @@
           .catch(error => console.error("Erro:", error));
 
           listafiltro.innerHTML = "";
-
+          let zero = document.createElement('option');
+          zero.textContent = "";
+          listafiltro.appendChild(zero);
           fetch("../Backend/buscar_categorias.php")
               .then(response => response.json())
               .then(dados => {

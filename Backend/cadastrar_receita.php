@@ -1,11 +1,8 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 require __DIR__ . "/db.php";
 
-$dados = json_decode(file_get_contents("php://input"), true);
+$dados = json_decode($_POST["dados"], true);
 
 $titu = $dados['titulo'] ?? "receita";
 $desc = $dados['descricao'] ?? "...";
@@ -17,6 +14,8 @@ $dificuldade = $dados['dificuldade'];
 $cozinha = $dados['cozinha'];
 $categoria = $dados['categoria'];
 $idusuario = 1;
+$imgTmp = $_FILES["imagem"]["tmp_name"];
+$imgData = file_get_contents($imgTmp);
 
 try {
     $pdo->beginTransaction();
@@ -38,14 +37,6 @@ try {
     $sql->execute([$cozinha]);
     $idcozinha = $sql->fetchColumn();
 
-    file_put_contents("debug_ids.txt", json_encode([
-    "idcusto" => $idcusto,
-    "iddificuldade" => $iddificuldade,
-    "idcategoria" => $idcategoria,
-    "idcozinha" => $idcozinha
-    ], JSON_PRETTY_PRINT));
-
-
     // Insert preparo
     $stmtPreparo = $pdo->prepare("
         INSERT INTO preparo (modo_preparo, tempopreparo) VALUES (?, '01:00:00')
@@ -57,8 +48,8 @@ try {
     // Insert receita
     $stmt = $pdo->prepare("
         INSERT INTO receita 
-        (titulo, descricao, preparo_idpreparo, custo_idcusto, dificuldade_iddificuldade, cadastro_idusuario)
-        VALUES (?, ?, ?, ?, ?, ?)
+        (titulo, descricao, preparo_idpreparo, custo_idcusto, dificuldade_iddificuldade, cadastro_idusuario, imagem)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     ");
     $stmt->execute([
         $titu,
@@ -66,8 +57,11 @@ try {
         $idpreparo,
         $idcusto,
         $iddificuldade,
-        $idusuario
+        $idusuario,
+        $imgData
     ]);
+
+
 
     $idreceita = $pdo->lastInsertId();
 

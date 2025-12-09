@@ -1,6 +1,0 @@
-{
-    "idcusto": 1,
-    "iddificuldade": 1,
-    "idcategoria": 1,
-    "idcozinha": 1
-}

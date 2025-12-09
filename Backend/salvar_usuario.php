@@ -59,6 +59,8 @@ try{
     ]);
 
     echo "Usuário cadastrado com sucesso!";
+    header("Location: ../frontend/login.html");
+
 
 } catch(Exception $e){
 

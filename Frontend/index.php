@@ -38,15 +38,19 @@ if (!isset($_SESSION["logado"])) {
          <div class="nav">
             <ul>
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
 
                 <li>
                     <a href="listarReceitas.html">Todas as Receitas</a>
                 </li>
-
                 <li>
-                    <a href="listarReceitas.html">Suas Receitas</a>
+                    <a href="cadastroReceita.html">Nova Receita</a>
+                </li>
+
+                
+                <li>
+                    <a href="listarReceitas.html">Receitas</a>
                 </li>
                
                 <li>
@@ -57,6 +61,9 @@ if (!isset($_SESSION["logado"])) {
                 <li>
                     <a href="usuarios.html">Chefs</a>
                 </li>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
             </ul>
     </div>
 
@@ -64,53 +71,59 @@ if (!isset($_SESSION["logado"])) {
             <a href="receita.html">
             <div class="receita">
                 <div class="recei-titu">
-                    <h1>Titulo</h1>
+                    <h1>Bolo de Cenoura</h1>
                 </div>
                 <div id="card-img">
-                    <img src="IMG/images.jpg" alt="" width="493px" height="300px">
+                    <img src="IMG/Receitas/Bolo de cenoura.jpg" alt="" width="493px" height="300px">
                 </div>
                 <div class="recei_info">
-                        <div class="campo">Categoria: <span id="info"></span></div> <div class="campo">Dificuldade:<span id="info"></span></div>
-                        <div class="campo">Preparo:<span id="info"></span></div> <div class="campo">Autor:<span id="info"></span></div>
+                        <div class="campo">Categoria: <span id="info"> Bolos e Tortas</span></div> <div class="campo"> Dificuldade:<span id="info"> Fácil</span></div>
+                        <div class="campo">Tempo:<span id="info"> 1h 30min</span></div> <div class="campo">Autor:<span id="info"> Luis Felipe</span></div>
                 </div>
             </div>
             </a>
+            <a href="receita.html">
             <div class="receita">
                 <div class="recei-titu">
-                    <h1>Titulo</h1>
+                    <h1>Macarrão Alho e Óleo</h1>
                 </div>
                 <div id="card-img">
-                    <img src="IMG/images.jpg" alt="" width="493px" height="300px">
+                    <img src="IMG/Receitas/Macarrão alho e óleo.png" alt="" width="493px" height="300px">
                 </div>
                 <div class="recei_info">
-                        <div class="campo">Categoria: <span id="info"></span></div> <div class="campo">Dificuldade:<span id="info"></span></div>
-                        <div class="campo">Preparo:<span id="info"></span></div> <div class="campo">Autor:<span id="info"></span></div>
+                        <div class="campo">Categoria: <span id="info"></span> Massas</div> <div class="campo">Dificuldade:<span id="info"> Média</span></div>
+                        <div class="campo">Tempo:<span id="info"> 1 h</span></div> <div class="campo">Autor:<span id="info"> Luis Felipe</span></div>
                 </div>
             </div>
+            </a>
+            <a href="receita.html">
             <div class="receita">
                 <div class="recei-titu">
-                    <h1>Titulo</h1>
+                    <h1>Suco de Laranja</h1>
                 </div>
                 <div id="card-img">
-                    <img src="IMG/images.jpg" alt="" width="493px" height="300px">
+                    <img src="IMG/Receitas/Suco de laranja.png" alt="" width="493px" height="300px">
                 </div>
                 <div class="recei_info">
-                        <div class="campo">Categoria: <span id="info"></span></div> <div class="campo">Dificuldade:<span id="info"></span></div>
-                        <div class="campo">Preparo:<span id="info"></span></div> <div class="campo">Autor:<span id="info"></span></div>
+                        <div class="campo">Categoria: <span id="info"></span> Bebidas</div> <div class="campo">Dificuldade:<span id="info"> Fácil</span></div>
+                        <div class="campo">Preparo:<span id="info"> 30min</span></div> <div class="campo">Autor:<span id="info"> Luis Felipe</span></div>
                 </div>
             </div>
+            </a>
+            <a href="receita.html">
             <div class="receita">
                 <div class="recei-titu">
-                    <h1>Titulo</h1>
+                    <h1>Torta de Limão</h1>
                 </div>
                 <div id="card-img">
-                    <img src="IMG/images.jpg" alt="" width="493px" height="300px">
+                    <img src="IMG/Receitas/Torta de limão fácil.jpg" alt="" width="493px" height="300px">
                 </div>
                 <div class="recei_info">
-                        <div class="campo">Categoria: <span id="info"></span></div> <div class="campo">Dificuldade:<span id="info"></span></div>
-                        <div class="campo">Preparo:<span id="info"></span></div> <div class="campo">Autor:<span id="info"></span></div>
+                        <div class="campo">Categoria: <span id="info"> Bolos e Tortas</span></div> <div class="campo">Dificuldade:<span id="info"> Média</span></div>
+                        <div class="campo">Preparo:<span id="info"> 2h</span></div> <div class="campo">Autor:<span id="info"> Luis Felipe</span></div>
                 </div>
             </div>
+            </a>
         </div>
     </main>
     <footer>

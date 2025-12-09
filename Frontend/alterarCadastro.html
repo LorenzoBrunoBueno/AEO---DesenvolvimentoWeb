@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Perfil</title>
+    <link rel="stylesheet" href="CSS/styleCadastro.css">
+</head>
+<body>
+    <img id="ket" src="img/ket.png" style="position: absolute;" alt="">
+    <img id="must" src="img/must.png" style="position: absolute;" alt="">
+
+    <img class="mancha" style="transform: rotate(45deg) translate(500px, 380px); " src="img/splashK.png" alt="">
+    <img class="mancha" style="transform: rotate(100deg) translate(400px, -1500px);"  src="img/splashK.png" alt="">
+    <img class="mancha" style="transform: rotate(160deg) translate(190px, -200px);" src="img/splashK.png" alt="">
+    <img class="mancha" style="transform: translate(100px, 50px); z-index: -1" src="img/splashK.png" alt="">
+
+    <img class="mancha" style="transform: rotate(100deg) translate(590px, 140px);" src="img/splashM.png" alt="">
+    <img class="mancha" style="transform: rotate(160deg) translate(-670px, -900px); z-index: -1;" src="img/splashM.png" alt="">
+    <img class="mancha" style="transform: rotate(180deg) translate(-1450px, 100px); z-index: -1;" src="img/splashM.png" alt="">
+    <img class="mancha" style="transform: rotate(200deg) translate(-1360px, 150px);" src="img/splashM.png" alt="">
+
+    <div id="ped">
+        <div id="prego"></div>
+        <div class="titulo">
+            <p>QUASETUDO</p>
+        </div>
+        <div class="titulo2">
+            <p>GOSTOSO</p>
+        </div>
+    </div>
+
+    <main>
+        <img id="pao" style="position: fixed;" src="IMG/2.png" alt="">
+
+        <div class="titu">
+            <h2>Alterar</h2>
+        </div>
+
+        <!-- FORMULÁRIO COMEÇA AQUI -->
+        <form action="../backend/salvar_usuario.php" method="POST">
+
+        <div class="divCadastro">
+            <div>
+                <label for="inpNome">Nome de Usuário</label>
+                <input type="text" id="inpNome" name="nome" required>
+            </div>
+
+            <img id="alfa" src="IMG/1.png" style="position: fixed;" alt="">
+
+            <div>
+                <label for="inpEmail">Email</label>
+                <input type="email" id="inpEmail" name="email" required>
+            </div>
+
+            <div>
+                <label for="inpNascimento">Data de Nascimento</label>
+                <input type="date" id="inpNascimento" name="data_nascimento" required>
+            </div>
+
+            <div>
+                <label for="inpCep">CEP</label>
+                <input type="text" id="inpCep" name="cep" required>
+            </div>
+
+            <img id="toma" src="IMG/5.png" style="position: fixed;" alt="">
+
+            <div>
+                <label for="genero">Gênero</label>
+                <Select name="genero">
+                    <option value="Masc">Masculino</option>
+                    <option value="Fem">Feminino</option>
+                    <option value="Out">Outro</option>
+                    <option value="Pref">Prefiro Não Responder</option>
+                </Select>
+            </div>
+
+            <div>
+                <label for="inpSenha">Senha</label>
+                <input type="password" id="inpSenha" name="senha" required>
+            </div>
+
+            <img id="quei" style="position: fixed;" src="IMG/3.png" alt="">
+
+            <img id="carne" style="position: fixed;" src="IMG/4.png" alt="">
+
+            <img style="position: fixed;" id="paobaixo" src="img/7.png" alt="" width="480">
+
+            <button type="submit">Alterar</button>
+
+            <img id="sache" src="IMG/sache.png" alt="">
+        </div>
+
+        </form>
+
+    </main>
+</body>
+</html>

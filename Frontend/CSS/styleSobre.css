@@ -10,7 +10,7 @@ body{
   background-color: aliceblue;
 }
 
-/* NAV mantida */
+/* NAV mantida 
 .nav{
   text-align: center;
   border-top: 1px solid black;
@@ -21,7 +21,7 @@ body{
   display: inline;
   list-style: none;
   padding: 12px;
-}
+}*/
 
 /* SOBRE */
 .sobre-topo{
